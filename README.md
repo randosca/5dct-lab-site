@@ -15,9 +15,10 @@ JavaScript build, no dependencies beyond Python 3.
 | `/people/` | The team and doctoral lineage | `data/people.json` |
 | `/publications/` | Papers by year | `data/publications.json` |
 | `/presentations/` | Posters and abstracts | `data/presentations.json` |
+| `/presentations/<slug>/` | One poster: full-size image and PDF download | `data/presentations.json` |
 | `/contact/` | Contact and collaboration | `data/site.json` |
 
-Images go in `assets/img/` and poster thumbnails in `assets/posters/`.
+Images go in `assets/img/` and poster files in `assets/posters/`. Open items are listed in `TODO.md`.
 
 ## Editing content
 
@@ -34,6 +35,13 @@ Or edit `data/publications.json` by hand.
 
 Copy an entry in `data/people.json` and change the fields. `initials` are shown until a photo
 is added.
+
+### Add a poster
+
+Put three files in `assets/posters/`: the PDF, a full-size JPEG of the first page (about 2600 px
+wide), and a thumbnail (about 1100 px wide). Then add an entry to `data/presentations.json` with
+`slug`, `thumb`, `full`, and `pdf`. An entry with only a title and authors, and no `slug`, is listed
+without a link, which is how abstracts and talks without a file are shown.
 
 ### Remove the mockup banner
 

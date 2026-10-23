@@ -227,8 +227,7 @@ def people(site, data):
         lineage.append(f'<li class="{"open" if item.get("open") else ""}"><div class="y">{e(item["year"])}</div>'
                        f'<h4>{e(item["name"])}</h4><p>{e(item["thesis"])}{link}</p><p>{e(item["now"])}</p></li>')
     return (f'{section_head(site["people"], "h1")}{"".join(groups)}'
-            f'<div class="group"><h3>{e(data["lineage_heading"])}</h3><ol class="lineage">{"".join(lineage)}</ol>'
-            f'<p class="note">{e(data["alumni_note"])}</p><p class="note">{e(data["collaborators"])}</p></div>')
+            f'<div class="group"><h3>{e(data["lineage_heading"])}</h3><ol class="lineage">{"".join(lineage)}</ol></div>')
 
 
 def author_list(authors):
@@ -266,18 +265,44 @@ def publications(site, pubs):
     return f'{section_head(site["publications"], "h1", {"count": len(pubs)})}{"".join(blocks)}'
 
 
+def has_detail(item):
+    return bool(item.get("slug") and (item.get("full") or item.get("pdf")))
+
+
 def presentations(site, items, prefix):
     cards = []
     for p in sorted(items, key=lambda x: (-x["year"], x["title"])):
+        detail = f'{p["slug"]}/' if has_detail(p) else ""
         if p.get("thumb"):
             thumb = (f'<div class="thumb"><img src="{e(prefix + p["thumb"])}" alt="Poster: {e(p["title"])}"'
                      f' loading="lazy"></div>')
         else:
             thumb = '<div class="thumb pending">No image yet</div>'
+        title = e(p["title"])
+        if detail:
+            thumb = f'<a class="cardlink" href="{e(detail)}" aria-label="Open poster: {title}">{thumb}</a>'
+            title = f'<a href="{e(detail)}">{title}</a>'
         cards.append(f'<article class="poster">{thumb}<div class="body">'
                      f'<div class="m"><span class="pill">{e(p["type"])}</span>{e(p["meeting"])}</div>'
-                     f'<div class="t">{e(p["title"])}</div><p class="au">{e(p["authors"])}</p></div></article>')
+                     f'<div class="t">{title}</div><p class="au">{e(p["authors"])}</p></div></article>')
     return f'{section_head(site["presentations"], "h1")}<div class="posters">{"".join(cards)}</div>'
+
+
+def poster_page(item, prefix):
+    """Detail page for one poster: the full-size image and a PDF download."""
+    head = section_head({"eyebrow": f'{item["type"]} · {item["meeting"]}', "heading": item["title"],
+                         "intro": item["authors"]}, "h1")
+    actions = []
+    if item.get("pdf"):
+        size_mb = (ROOT / item["pdf"]).stat().st_size / 1e6
+        actions.append(f'<a class="btn primary" href="{e(prefix + item["pdf"])}" download>'
+                       f'Download PDF ({size_mb:.1f} MB)</a>')
+    if item.get("full"):
+        actions.append(f'<a class="btn" href="{e(prefix + item["full"])}">Open full-size image</a>')
+    actions.append('<a class="back" href="../">All posters</a>')
+    image = (f'<div class="poster-full"><img src="{e(prefix + item["full"])}" alt="Poster: {e(item["title"])}"></div>'
+             if item.get("full") else "")
+    return f'{head}<div class="poster-actions">{"".join(actions)}</div>{image}'
 
 
 def contact(site):
@@ -309,28 +334,36 @@ def build():
     def titled(cfg, extra=None):
         return f'{cfg["heading"]} · {name}', fill(cfg.get("intro", ""), extra) or site["description"]
 
-    pages = [("", (name, site["description"]), hero(site, "") + contents(site, "", len(pubs)))]
+    posters = load("presentations.json")
     sub = "../"
-    pages += [
-        ("method", titled(site["method"]), method(site, sub)),
-        ("research", titled(site["research"]), research(site, sub)),
-        ("history", titled(site["milestones"]), milestones(site, load("timeline.json"))),
-        ("people", titled(site["people"]), people(site, load("people.json"))),
-        ("publications", titled(site["publications"], {"count": len(pubs)}), publications(site, pubs)),
-        ("presentations", titled(site["presentations"]), presentations(site, load("presentations.json"), sub)),
-        ("contact", titled(site["contact"]), contact(site)),
-    ]
+    # Each entry: output folder under _site, path prefix back to the site root, nav item to highlight,
+    # page title, meta description, body HTML.
+    pages = [("", "", "", name, site["description"], hero(site, "") + contents(site, "", len(pubs)))]
+    for slug, cfg, body in [
+        ("method", site["method"], method(site, sub)),
+        ("research", site["research"], research(site, sub)),
+        ("history", site["milestones"], milestones(site, load("timeline.json"))),
+        ("people", site["people"], people(site, load("people.json"))),
+        ("publications", site["publications"], publications(site, pubs)),
+        ("presentations", site["presentations"], presentations(site, posters, sub)),
+        ("contact", site["contact"], contact(site)),
+    ]:
+        title, description = titled(cfg, {"count": len(pubs)})
+        pages.append((slug, sub, slug, title, description, body))
+    for item in posters:
+        if has_detail(item):
+            pages.append((f'presentations/{item["slug"]}', "../../", "presentations",
+                          f'{item["title"]} · {name}', item["authors"], poster_page(item, "../../")))
 
     # Empty the output folder rather than deleting it, so a local server pointed at it keeps working.
     OUT.mkdir(exist_ok=True)
     for child in OUT.iterdir():
         shutil.rmtree(child) if child.is_dir() else child.unlink()
 
-    for slug, (title, description), body in pages:
-        prefix = sub if slug else ""
-        folder = OUT / slug if slug else OUT
+    for folder_rel, prefix, current, title, description, body in pages:
+        folder = OUT / folder_rel if folder_rel else OUT
         folder.mkdir(parents=True, exist_ok=True)
-        (folder / "index.html").write_text(page(site, prefix, slug, title, description, body), encoding="utf-8")
+        (folder / "index.html").write_text(page(site, prefix, current, title, description, body), encoding="utf-8")
 
     shutil.copytree(ASSETS, OUT / "assets")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
