@@ -61,12 +61,13 @@ def section_head(cfg, level="h2", extra=None):
             f'<{level}>{e(cfg["heading"])}</{level}>{intro_html}</div>')
 
 
-def figure(fig, prefix, cls="ct"):
+def figure(fig, prefix, cls="ct", lazy=True):
     cap = ""
     if fig.get("caption"):
         label = f'<span class="lab">{e(fig["label"])}</span>' if fig.get("label") else ""
         cap = f'<figcaption>{label}{e(fig["caption"])}</figcaption>'
-    return (f'<figure><div class="{cls}"><img src="{e(prefix + fig["src"])}" alt="{e(fig["alt"])}" loading="lazy"></div>'
+    loading = ' loading="lazy"' if lazy else ""
+    return (f'<figure><div class="{cls}"><img src="{e(prefix + fig["src"])}" alt="{e(fig["alt"])}"{loading}></div>'
             f'{cap}</figure>')
 
 
@@ -149,7 +150,7 @@ def hero(site, prefix):
         f'<p class="lede"><strong>{e(h["lede_strong"])}</strong>{e(h["lede"])}</p>'
         f'<div class="cta"><a class="btn primary" href="{e(prefix + h["primary"][0] + "/")}">{e(h["primary"][1])}</a>'
         f'<a class="btn" href="{e(prefix + h["secondary"][0] + "/")}">{e(h["secondary"][1])}</a></div></div>'
-        f'{figure(h["figure"], prefix)}'
+        f'{figure(h["figure"], prefix, lazy=False)}'
         f'</div><div class="wrap">{breathing_trace()}<div class="stats">{stats}</div></div></section>'
     )
 
