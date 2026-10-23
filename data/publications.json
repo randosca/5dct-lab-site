@@ -1,0 +1,1013 @@
+[
+  {
+    "pmid": "39941897",
+    "doi": "10.3390/cancers17030531",
+    "year": 2025,
+    "title": "A Retrospective Analysis of the First Clinical 5DCT Workflow",
+    "authors": [
+      "Lauria M",
+      "Kim M",
+      "O'Connell D",
+      "Lao Y",
+      "Miller CR",
+      "Naumann L",
+      "Boyle P",
+      "Raldow A",
+      "Lee A",
+      "Savjani RR",
+      "Moghanaki D",
+      "Low DA"
+    ],
+    "journal": "Cancers (Basel)",
+    "volume": "17",
+    "issue": "3",
+    "pages": "",
+    "tags": [
+      "clinical"
+    ]
+  },
+  {
+    "pmid": "39620482",
+    "doi": "10.1002/mp.17552",
+    "year": 2025,
+    "title": "Introducing a novel sub-millimeter lung CT image registration error quantitation tool",
+    "authors": [
+      "Boyle P",
+      "Naumann L",
+      "Lauria M",
+      "Miller C",
+      "Andosca R",
+      "Savjani R",
+      "O'Connell D",
+      "Moghanaki D",
+      "Barjaktarevic I",
+      "Goldin J",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "52",
+    "issue": "3",
+    "pages": "1601-1614",
+    "tags": [
+      "registration"
+    ]
+  },
+  {
+    "pmid": "40815223",
+    "doi": "10.1148/rycan.250023",
+    "year": 2025,
+    "title": "Modern Approaches for Thoracic Image Registration and Respiratory Motion Management in Oncology",
+    "authors": [
+      "Jank E",
+      "Liu EY",
+      "Delery W",
+      "Boyle P",
+      "Miller C",
+      "Andosca R",
+      "Naumann L",
+      "Upadhyay R",
+      "Kadambi A",
+      "Low D",
+      "Lauria M",
+      "Savjani RR"
+    ],
+    "journal": "Radiol Imaging Cancer",
+    "volume": "7",
+    "issue": "5",
+    "pages": "e250023",
+    "tags": [
+      "review"
+    ]
+  },
+  {
+    "pmid": "38452385",
+    "doi": "10.1088/1361-6560/ad311b",
+    "year": 2024,
+    "title": "Motion compensated cone-beam CT reconstruction using an a priori motion model from CT simulation: a pilot study",
+    "authors": [
+      "Lauria M",
+      "Miller C",
+      "Singhrao K",
+      "Lewis J",
+      "Lin W",
+      "O'Connell D",
+      "Naumann L",
+      "Stiehl B",
+      "Santhanam A",
+      "Boyle P",
+      "Raldow AC",
+      "Goldin J",
+      "Barjaktarevic I",
+      "Low DA"
+    ],
+    "journal": "Phys Med Biol",
+    "volume": "69",
+    "issue": "7",
+    "pages": "",
+    "tags": [
+      "cbct"
+    ]
+  },
+  {
+    "pmid": "37840998",
+    "doi": "10.3389/fmed.2023.1151867",
+    "year": 2023,
+    "title": "An analysis of the regional heterogeneity in tissue elasticity in lung cancer patients with COPD",
+    "authors": [
+      "Lauria M",
+      "Stiehl B",
+      "Santhanam A",
+      "O'Connell D",
+      "Naumann L",
+      "McNitt-Gray M",
+      "Raldow A",
+      "Goldin J",
+      "Barjaktarevic I",
+      "Low DA"
+    ],
+    "journal": "Front Med (Lausanne)",
+    "volume": "10",
+    "issue": "",
+    "pages": "1151867",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "32449519",
+    "doi": "10.1002/mp.14252",
+    "year": 2021,
+    "title": "An adversarial machine learning framework and biomechanical model-guided approach for computing 3D lung tissue elasticity from end-expiration 3DCT",
+    "authors": [
+      "Santhanam AP",
+      "Stiehl B",
+      "Lauria M",
+      "Hasse K",
+      "Barjaktarevic I",
+      "Goldin J",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "48",
+    "issue": "2",
+    "pages": "667-675",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "34378122",
+    "doi": "10.1007/s11548-021-02454-6",
+    "year": 2021,
+    "title": "Scalable quorum-based deep neural networks with adversarial learning for automated lung lobe segmentation in fast helical free-breathing CTs",
+    "authors": [
+      "Stiehl B",
+      "Lauria M",
+      "Singhrao K",
+      "Goldin J",
+      "Barjaktarevic I",
+      "Low D",
+      "Santhanam A"
+    ],
+    "journal": "Int J Comput Assist Radiol Surg",
+    "volume": "16",
+    "issue": "10",
+    "pages": "1775-1784",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "33550622",
+    "doi": "10.1002/mp.14759",
+    "year": 2021,
+    "title": "Technical Note: Investigating internal-external motion correlation using fast helical CT",
+    "authors": [
+      "Lauria M",
+      "Navaratna R",
+      "O'Connell D",
+      "Santhanam A",
+      "Lee P",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "48",
+    "issue": "4",
+    "pages": "1823-1831",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "34410014",
+    "doi": "10.1002/mp.15173",
+    "year": 2021,
+    "title": "Ventilation measurements using fast-helical free-breathing computed tomography",
+    "authors": [
+      "Low DA",
+      "O'Connell D",
+      "Lauria M",
+      "Stiehl B",
+      "Naumann L",
+      "Lee P",
+      "Hegde J",
+      "Barjaktarevic I",
+      "Goldin J",
+      "Santhanam A"
+    ],
+    "journal": "Med Phys",
+    "volume": "48",
+    "issue": "10",
+    "pages": "6094-6105",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "32521048",
+    "doi": "10.1002/mp.14323",
+    "year": 2020,
+    "title": "A quantitative analysis of biomechanical lung model consistency using 5DCT datasets",
+    "authors": [
+      "Stiehl B",
+      "Lauria M",
+      "O'Connell D",
+      "Hasse K",
+      "Barjaktarevic IZ",
+      "Lee P",
+      "Low DA",
+      "Santhanam AP"
+    ],
+    "journal": "Med Phys",
+    "volume": "47",
+    "issue": "11",
+    "pages": "5555-5567",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "32128820",
+    "doi": "10.1002/mp.14112",
+    "year": 2020,
+    "title": "Systematic feasibility analysis of performing elastography using reduced dose CT lung image pairs",
+    "authors": [
+      "Hasse K",
+      "Hsieh SS",
+      "O'Connell D",
+      "Stiehl B",
+      "Min Y",
+      "Neylon J",
+      "Low DA",
+      "Santhanam AP"
+    ],
+    "journal": "Med Phys",
+    "volume": "47",
+    "issue": "8",
+    "pages": "3369-3375",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "30281329",
+    "doi": "10.1259/bjr.20180296",
+    "year": 2019,
+    "title": "Feasibility of deriving a novel imaging biomarker based on patient-specific lung elasticity for characterizing the degree of COPD in lung SBRT patients",
+    "authors": [
+      "Hasse K",
+      "Neylon J",
+      "Min Y",
+      "O'Connell D",
+      "Lee P",
+      "Low DA",
+      "Santhanam AP"
+    ],
+    "journal": "Br J Radiol",
+    "volume": "92",
+    "issue": "1094",
+    "pages": "20180296",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "30776788",
+    "doi": "10.1088/1361-6560/ab07d6",
+    "year": 2019,
+    "title": "McSART: an iterative model-based, motion-compensated SART algorithm for CBCT reconstruction",
+    "authors": [
+      "Chee G",
+      "O'Connell D",
+      "Yang YM",
+      "Singhrao K",
+      "Low DA",
+      "Lewis JH"
+    ],
+    "journal": "Phys Med Biol",
+    "volume": "64",
+    "issue": "9",
+    "pages": "095013",
+    "tags": [
+      "cbct"
+    ]
+  },
+  {
+    "pmid": "31087359",
+    "doi": "10.1002/mp.13595",
+    "year": 2019,
+    "title": "Reconstruction of a high-quality volumetric image and a respiratory motion model from patient CBCT projections",
+    "authors": [
+      "Guo M",
+      "Chee G",
+      "O'Connell D",
+      "Dhou S",
+      "Fu J",
+      "Singhrao K",
+      "Ionascu D",
+      "Ruan D",
+      "Lee P",
+      "Low DA",
+      "Zhao J",
+      "Lewis JH"
+    ],
+    "journal": "Med Phys",
+    "volume": "46",
+    "issue": "8",
+    "pages": "3627-3639",
+    "tags": [
+      "cbct"
+    ]
+  },
+  {
+    "pmid": "30656699",
+    "doi": "10.1002/mp.13386",
+    "year": 2019,
+    "title": "Safety-oriented design of in-house software for new techniques: A case study using a model-based 4DCT protocol",
+    "authors": [
+      "O'Connell D",
+      "Thomas DH",
+      "Lewis JH",
+      "Hasse K",
+      "Santhanam A",
+      "Lamb JM",
+      "Cao M",
+      "Tenn S",
+      "Agazaryan N",
+      "Lee PP",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "46",
+    "issue": "4",
+    "pages": "1523-1532",
+    "tags": [
+      "clinical"
+    ]
+  },
+  {
+    "pmid": "29350191",
+    "doi": "10.1088/1361-6560/aaa90f",
+    "year": 2018,
+    "title": "A prospective gating method to acquire a diverse set of free-breathing CT images for model-based 4DCT",
+    "authors": [
+      "O'Connell D",
+      "Ruan D",
+      "Thomas DH",
+      "Dou TH",
+      "Lewis JH",
+      "Santhanam A",
+      "Lee P",
+      "Low DA"
+    ],
+    "journal": "Phys Med Biol",
+    "volume": "63",
+    "issue": "4",
+    "pages": "04NT03",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "29429921",
+    "doi": "10.1016/j.prro.2017.11.003",
+    "year": 2018,
+    "title": "Comparison of lung tumor motion measured using a model-based 4DCT technique and a commercial protocol",
+    "authors": [
+      "O'Connell D",
+      "Shaverdian N",
+      "Kishan AU",
+      "Thomas DH",
+      "Dou TH",
+      "Lewis JH",
+      "Lamb JM",
+      "Cao M",
+      "Tenn S",
+      "Percy LP",
+      "Low DA"
+    ],
+    "journal": "Pract Radiat Oncol",
+    "volume": "8",
+    "issue": "3",
+    "pages": "e175-e183",
+    "tags": [
+      "clinical"
+    ]
+  },
+  {
+    "pmid": "29360098",
+    "doi": "10.1088/1361-6560/aaaa15",
+    "year": 2018,
+    "title": "Dependence of subject-specific parameters for a fast helical CT respiratory motion model on breathing rate: an animal study",
+    "authors": [
+      "O'Connell D",
+      "Thomas DH",
+      "Lamb JM",
+      "Lewis JH",
+      "Dou T",
+      "Sieren JP",
+      "Saylor M",
+      "Hofmann C",
+      "Hoffman EA",
+      "Lee PP",
+      "Low DA"
+    ],
+    "journal": "Phys Med Biol",
+    "volume": "63",
+    "issue": "4",
+    "pages": "04NT04",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "29172237",
+    "doi": "10.1002/mp.12697",
+    "year": 2018,
+    "title": "Estimation and validation of patient-specific high-resolution lung elasticity derived from 4DCT",
+    "authors": [
+      "Hasse K",
+      "O'Connell D",
+      "Min Y",
+      "Neylon J",
+      "Low DA",
+      "Santhanam A"
+    ],
+    "journal": "Med Phys",
+    "volume": "45",
+    "issue": "2",
+    "pages": "666-677",
+    "tags": [
+      "lungfunction"
+    ]
+  },
+  {
+    "pmid": "29099616",
+    "doi": "10.1259/bjr.20170597",
+    "year": 2018,
+    "title": "Investigating the minimum scan parameters required to generate free-breathing motion artefact-free fast-helical CT",
+    "authors": [
+      "Thomas DH",
+      "Tan J",
+      "Neylon J",
+      "Dou T",
+      "O'Connell D",
+      "McNitt-Gray M",
+      "Lee P",
+      "Lamb J",
+      "Low DA"
+    ],
+    "journal": "Br J Radiol",
+    "volume": "91",
+    "issue": "1082",
+    "pages": "20170597",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "28185281",
+    "doi": "10.1002/mp.12153",
+    "year": 2017,
+    "title": "Technical Note: Analysis of motion blurring artifact in fast helical free-breathing thoracic CT scans",
+    "authors": [
+      "Low DA",
+      "Yang L",
+      "Chen J",
+      "O'Connel D",
+      "Lewis JH",
+      "Thomas DH",
+      "Lee P"
+    ],
+    "journal": "Med Phys",
+    "volume": "44",
+    "issue": "4",
+    "pages": "1456-1461",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "27811397",
+    "doi": "10.1088/0031-9155/61/23/N632",
+    "year": 2016,
+    "title": "Is there an ideal set of prospective scan acquisition phases for fast-helical based 4D-CT?",
+    "authors": [
+      "Thomas DH",
+      "Ruan D",
+      "Williams P",
+      "Lamb J",
+      "White BM",
+      "Dou T",
+      "O'Connell D",
+      "Lee P",
+      "Low DA"
+    ],
+    "journal": "Phys Med Biol",
+    "volume": "61",
+    "issue": "23",
+    "pages": "N632-N641",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "26530763",
+    "doi": "10.1016/j.ijrobp.2015.07.2272",
+    "year": 2015,
+    "title": "A Method for Assessing Ground-Truth Accuracy of the 5DCT Technique",
+    "authors": [
+      "Dou TH",
+      "Thomas DH",
+      "O'Connell DP",
+      "Lamb JM",
+      "Lee P",
+      "Low DA"
+    ],
+    "journal": "Int J Radiat Oncol Biol Phys",
+    "volume": "93",
+    "issue": "4",
+    "pages": "925-33",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "26133604",
+    "doi": "10.1118/1.4922201",
+    "year": 2015,
+    "title": "Comparison of breathing gated CT images generated using a 5DCT technique and a commercial clinical protocol in a porcine model",
+    "authors": [
+      "O'Connell DP",
+      "Thomas DH",
+      "Dou TH",
+      "Lamb JM",
+      "Feingold F",
+      "Low DA",
+      "Fuld MK",
+      "Sieren JP",
+      "Sloan CM",
+      "Shirk MA",
+      "Hoffman EA",
+      "Hofmann C"
+    ],
+    "journal": "Med Phys",
+    "volume": "42",
+    "issue": "7",
+    "pages": "4033-42",
+    "tags": [
+      "clinical"
+    ]
+  },
+  {
+    "pmid": "26429283",
+    "doi": "10.1118/1.4931416",
+    "year": 2015,
+    "title": "Technical Note: Simulation of 4DCT tumor motion measurement errors",
+    "authors": [
+      "Dou TH",
+      "Thomas DH",
+      "O'Connell D",
+      "Bradley JD",
+      "Lamb JM",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "42",
+    "issue": "10",
+    "pages": "6084-9",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "24694158",
+    "doi": "10.1118/1.4866888",
+    "year": 2014,
+    "title": "Modeling and incorporating cardiac-induced lung tissue motion in a breathing motion model",
+    "authors": [
+      "White BM",
+      "Santhanam A",
+      "Thomas D",
+      "Min Y",
+      "Lamb JM",
+      "Neylon J",
+      "Jani S",
+      "Gaudio S",
+      "Srinivasan S",
+      "Ennis D",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "41",
+    "issue": "4",
+    "pages": "043501",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "23640212",
+    "doi": "10.1088/0031-9155/58/11/L31",
+    "year": 2013,
+    "title": "A novel CT acquisition and analysis technique for breathing motion modeling",
+    "authors": [
+      "Low DA",
+      "White BM",
+      "Lee PP",
+      "Thomas DH",
+      "Gaudio S",
+      "Jani SS",
+      "Wu X",
+      "Lamb JM"
+    ],
+    "journal": "Phys Med Biol",
+    "volume": "58",
+    "issue": "11",
+    "pages": "L31-6",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "24320509",
+    "doi": "10.1118/1.4830423",
+    "year": 2013,
+    "title": "Physiologically guided approach to characterizing respiratory motion",
+    "authors": [
+      "White BM",
+      "Zhao T",
+      "Lamb JM",
+      "Bradley JD",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "40",
+    "issue": "12",
+    "pages": "121723",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "23718613",
+    "doi": "10.1118/1.4805099",
+    "year": 2013,
+    "title": "Quantification of the thorax-to-abdomen breathing ratio for breathing motion modeling",
+    "authors": [
+      "White BM",
+      "Zhao T",
+      "Lamb J",
+      "Bradley JD",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "40",
+    "issue": "6",
+    "pages": "063502",
+    "tags": [
+      "method"
+    ]
+  },
+  {
+    "pmid": "22079895",
+    "doi": "10.1088/0031-9155/56/23/012",
+    "year": 2011,
+    "title": "Biomechanical interpretation of a free-breathing lung motion model",
+    "authors": [
+      "Zhao T",
+      "White B",
+      "Moore KL",
+      "Lamb J",
+      "Yang D",
+      "Lu W",
+      "Mutic S",
+      "Low DA"
+    ],
+    "journal": "Phys Med Biol",
+    "volume": "56",
+    "issue": "23",
+    "pages": "7523-40",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "21520870",
+    "doi": "10.1118/1.3556589",
+    "year": 2011,
+    "title": "Investigation of a breathing surrogate prediction algorithm for prospective pulmonary gating",
+    "authors": [
+      "White BM",
+      "Low DA",
+      "Zhao T",
+      "Wuenschel S",
+      "Lu W",
+      "Lamb JM",
+      "Mutic S",
+      "Bradley JD",
+      "El Naqa I"
+    ],
+    "journal": "Med Phys",
+    "volume": "38",
+    "issue": "3",
+    "pages": "1587-95",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "20384273",
+    "doi": "10.1118/1.3326969",
+    "year": 2010,
+    "title": "Application of the continuity equation to a breathing motion model",
+    "authors": [
+      "Low DA",
+      "Zhao T",
+      "White B",
+      "Yang D",
+      "Mutic S",
+      "Noel CE",
+      "Bradley JD",
+      "Parikh PJ",
+      "Lu W"
+    ],
+    "journal": "Med Phys",
+    "volume": "37",
+    "issue": "3",
+    "pages": "1360-4",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "20229870",
+    "doi": "10.1118/1.3284282",
+    "year": 2010,
+    "title": "Technical note: development of a tidal volume surrogate that replaces spirometry for physiological breathing monitoring in 4D CT",
+    "authors": [
+      "Werner R",
+      "White B",
+      "Handels H",
+      "Lu W",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "37",
+    "issue": "2",
+    "pages": "615-9",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "19994528",
+    "doi": "10.1118/1.3246348",
+    "year": 2009,
+    "title": "Characterization of free breathing patterns with 5D lung motion model",
+    "authors": [
+      "Zhao T",
+      "Lu W",
+      "Yang D",
+      "Mutic S",
+      "Noel CE",
+      "Parikh PJ",
+      "Bradley JD",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "36",
+    "issue": "11",
+    "pages": "5183-9",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "18975704",
+    "doi": "10.1118/1.2977828",
+    "year": 2008,
+    "title": "4D-CT motion estimation using deformable image registration and 5D respiratory motion modeling",
+    "authors": [
+      "Yang D",
+      "Lu W",
+      "Low DA",
+      "Deasy JO",
+      "Hope AJ",
+      "El Naqa I"
+    ],
+    "journal": "Med Phys",
+    "volume": "35",
+    "issue": "10",
+    "pages": "4577-90",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "17654918",
+    "doi": "10.1118/1.2731029",
+    "year": 2007,
+    "title": "Tracking lung tissue motion and expansion/compression with inverse consistent image registration and spirometry",
+    "authors": [
+      "Christensen GE",
+      "Song JH",
+      "Lu W",
+      "El Naqa I",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "34",
+    "issue": "6",
+    "pages": "2155-63",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "16964875",
+    "doi": "10.1118/1.2219772",
+    "year": 2006,
+    "title": "A comparison between amplitude sorting and phase-angle sorting using external respiratory measurement for 4D CT",
+    "authors": [
+      "Lu W",
+      "Parikh PJ",
+      "Hubenschmidt JP",
+      "Bradley JD",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "33",
+    "issue": "8",
+    "pages": "2964-74",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "17089828",
+    "doi": "10.1118/1.2348764",
+    "year": 2006,
+    "title": "A semi-automatic method for peak and valley detection in free-breathing respiratory waveforms",
+    "authors": [
+      "Lu W",
+      "Nystrom MM",
+      "Parikh PJ",
+      "Fooshee DR",
+      "Hubenschmidt JP",
+      "Bradley JD",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "33",
+    "issue": "10",
+    "pages": "3634-6",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "16121592",
+    "doi": "10.1118/1.1935776",
+    "year": 2005,
+    "title": "Comparison of spirometry and abdominal height as four-dimensional computed tomography metrics in lung",
+    "authors": [
+      "Lu W",
+      "Low DA",
+      "Parikh PJ",
+      "Nystrom MM",
+      "El Naqa IM",
+      "Wahab SH",
+      "Handoko M",
+      "Fooshee D",
+      "Bradley JD"
+    ],
+    "journal": "Med Phys",
+    "volume": "32",
+    "issue": "7",
+    "pages": "2351-7",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "16140468",
+    "doi": "10.1016/j.ijrobp.2005.03.070",
+    "year": 2005,
+    "title": "Novel breathing motion model for radiotherapy",
+    "authors": [
+      "Low DA",
+      "Parikh PJ",
+      "Lu W",
+      "Dempsey JF",
+      "Wahab SH",
+      "Hubenschmidt JP",
+      "Nystrom MM",
+      "Handoko M",
+      "Bradley JD"
+    ],
+    "journal": "Int J Radiat Oncol Biol Phys",
+    "volume": "63",
+    "issue": "3",
+    "pages": "921-9",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "15895571",
+    "doi": "10.1118/1.1870152",
+    "year": 2005,
+    "title": "Quantitation of the reconstruction quality of a four-dimensional computed tomography process for lung cancer patients",
+    "authors": [
+      "Lu W",
+      "Parikh PJ",
+      "El Naqa IM",
+      "Nystrom MM",
+      "Hubenschmidt JP",
+      "Wahab SH",
+      "Mutic S",
+      "Singh AK",
+      "Christensen GE",
+      "Bradley JD",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "32",
+    "issue": "4",
+    "pages": "890-901",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "16372410",
+    "doi": "10.1118/1.2074187",
+    "year": 2005,
+    "title": "Reduction of motion blurring artifacts using respiratory gated CT in sinogram space: a quantitative evaluation",
+    "authors": [
+      "Lu W",
+      "Parikh PJ",
+      "Hubenschmidt JP",
+      "Politte DG",
+      "Whiting BR",
+      "Bradley JD",
+      "Mutic S",
+      "Low DA"
+    ],
+    "journal": "Med Phys",
+    "volume": "32",
+    "issue": "11",
+    "pages": "3295-304",
+    "tags": [
+      "foundations"
+    ]
+  },
+  {
+    "pmid": "12852551",
+    "doi": "10.1118/1.1576230",
+    "year": 2003,
+    "title": "A method for the reconstruction of four-dimensional synchronized CT scans acquired during free breathing",
+    "authors": [
+      "Low DA",
+      "Nystrom M",
+      "Kalinin E",
+      "Parikh P",
+      "Dempsey JF",
+      "Bradley JD",
+      "Mutic S",
+      "Wahab SH",
+      "Islam T",
+      "Christensen G",
+      "Politte DG",
+      "Whiting BR"
+    ],
+    "journal": "Med Phys",
+    "volume": "30",
+    "issue": "6",
+    "pages": "1254-63",
+    "tags": [
+      "foundations"
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+_sources/
+preview/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.claude/
+_site/

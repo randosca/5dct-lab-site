@@ -1,0 +1,135 @@
+{
+  "title": "5DCT Lab",
+  "description": "The UCLA Radiation Oncology team behind 5DCT, a model-based CT technique for imaging lungs that move.",
+  "affiliation": "Department of Radiation Oncology, David Geffen School of Medicine at UCLA",
+  "mockup_notice": "Mockup for internal review, October 2026. Text, numbers, and figures are placeholders pending confirmation by the team.",
+  "domain": "",
+  "nav": [
+    ["method", "Method"],
+    ["research", "Research"],
+    ["history", "History"],
+    ["people", "People"],
+    ["publications", "Publications"],
+    ["presentations", "Posters"],
+    ["contact", "Contact"]
+  ],
+  "contents": {
+    "eyebrow": "Contents",
+    "heading": "On this site",
+    "intro": ""
+  },
+  "hero": {
+    "dims": [["x", "spatial"], ["y", "spatial"], ["z", "spatial"], ["v", "breathing amplitude"], ["f", "breathing rate"]],
+    "headline": "Model-based CT for lung radiotherapy.",
+    "lede_strong": "The 5DCT Lab",
+    "lede": " is the UCLA Radiation Oncology team behind five-dimensional CT, a model-based CT simulation technique that replaces 4DCT phase sorting with a patient-specific breathing motion model. It has been part of routine clinical practice at UCLA since 2019.",
+    "primary": ["method", "How it works"],
+    "secondary": ["publications", "Publications"],
+    "figure": {
+      "src": "assets/img/4dct-vs-5dct.jpg",
+      "alt": "Coronal and sagittal lung CT slices for four patients, clinical 4DCT on the left and 5DCT on the right. The 4DCT images show diaphragm doubling and streaking; the 5DCT images do not.",
+      "label": "4DCT vs 5DCT",
+      "caption": "Clinical 4DCT (left) and 5DCT (right) for four patients. The diaphragm doubling and streaking in the 4DCT images are phase-sorting artifacts from irregular breathing, which the model-based reconstruction avoids."
+    }
+  },
+  "stats": [
+    {"n": "25", "l": "fast-helical scans per session"},
+    {"n": "≈2 min", "l": "free-breathing acquisition"},
+    {"n": "2019", "l": "routine clinical use at UCLA since"},
+    {"n": "300+", "l": "lung cancer patients planned with 5DCT"}
+  ],
+  "method": {
+    "eyebrow": "The method",
+    "heading": "What 5DCT is",
+    "intro": "A model-based alternative to 4DCT for treatment planning when the target moves with breathing.",
+    "paragraphs": [
+      "Radiotherapy for lung cancer depends on knowing where a tumor is and how far it moves during breathing. The clinical standard, four-dimensional CT (4DCT), records a breathing signal during scanning and sorts the projection data into eight to ten phase bins. When breathing is irregular the bins are undersampled or inconsistent, and the reconstructed images show diaphragm doubling, streaking, and blurring. Surveys report that 5 to 14% of patients are rescanned because of these artifacts, and 4DCT provides no measure of its own reconstruction quality.",
+      "In 5DCT the sorting step is replaced by a patient-specific motion model fit to the scans themselves. The patient breathes freely while the scanner acquires 25 fast helical scans in about two minutes and a pneumatic bellows around the upper abdomen records breathing amplitude, after which every scan is deformably registered to a reference scan and a motion model relating tissue position to breathing amplitude and breathing rate is fit at each voxel. The five dimensions are the three spatial coordinates plus these two respiratory parameters.",
+      "Because the model is continuous in breathing amplitude, images can be generated at any breathing state without changing the acquisition, and the fitted model can be used to re-predict the original 25 scans. The residual between prediction and measurement is reported voxel by voxel, which gives physicians a quantitative confidence map for the tumor and the structures around it. Imaging dose is comparable to a conventional 4DCT, and all of it contributes to image quality.",
+      "5DCT has been in routine use for thoracic treatment planning at UCLA since March 2019. In a retrospective analysis of the first clinical workflow, 83% of cases produced images used directly for planning, and no patient required a repeat scan."
+    ],
+    "equation_legend": "X₀ is the voxel's reference position, v the breathing amplitude, and f the breathing rate. α and β are fit per voxel from the 25 registered scans; β carries the hysteresis between inhalation and exhalation.",
+    "steps": [
+      {"title": "Acquire", "text": "25 fast helical free-breathing scans, each about 3 to 4 seconds, in alternating directions. The first scan uses a higher tube current and serves as the reference image."},
+      {"title": "Monitor", "text": "A bellows records breathing amplitude during every scan. Drift is removed by calibrating the signal to diaphragm position across the 25 scans, and breathing rate is taken as the time derivative."},
+      {"title": "Register", "text": "Each scan is deformably registered to the reference, giving a displacement field per scan. A second registration stage sharpens accuracy at the lung and chest wall interface."},
+      {"title": "Model and reconstruct", "text": "α and β are fit per voxel. Phase images are generated at percentiles of the patient's own amplitude distribution, and the residual error of the model is displayed on the anatomy."}
+    ],
+    "figure": {
+      "src": "assets/img/bellows-signal.png",
+      "alt": "Photograph of a black pneumatic bellows strapped around a person's abdomen, and a plot of the bellows voltage over about 700 seconds showing breathing oscillations with a slow downward drift.",
+      "label": "Breathing surrogate",
+      "caption": "A pneumatic bellows worn around the upper abdomen (A) and its raw voltage trace over an acquisition (B). The slow downward drift is removed when the signal is calibrated to diaphragm position."
+    }
+  },
+  "research": {
+    "eyebrow": "Current work",
+    "heading": "Research directions",
+    "intro": "The protocol produces 25 registered scans, a breathing signal, and a motion model for every patient, and the projects below use that data for measurements that 4DCT does not provide.",
+    "cards": [
+      {
+        "title": "Clinical 5DCT workflow",
+        "text": "The breathing signal is calibrated to diaphragm position measured in the scans themselves, and a 4DCT HiFi reconstruction serves as a backup when the model is not usable. Blinded physician contouring then shows how 4DCT- and 5DCT-defined target volumes differ and what those differences do to the dose distribution.",
+        "people": "Miller · Lauria · Moghanaki · Low",
+        "figure": null,
+        "pending": "Figure pending: 4DCT, 4DCT HiFi, and 5DCT comparison"
+      },
+      {
+        "title": "Ventilation from 5DCT",
+        "text": "Because each voxel is measured 25 times across the breathing cycle, a linear fit of Hounsfield units against amplitude corrects phase images for ventilation-induced density change and, in the same step, maps regional ventilation. Across 204 patients the density-based map agrees with Jacobian-based ventilation at the whole-lung level and resolves finer parenchymal detail.",
+        "people": "Andosca · Miller · Lauria · Low",
+        "figure": {"src": "assets/img/ventilation-maps.jpg", "alt": "Two coronal CT slices with color ventilation overlays on the lungs: Jacobian-based ventilation on the left and density-based ventilation on the right, with similar regional patterns and finer detail on the right."}
+      },
+      {
+        "title": "Motion-compensated cone-beam CT",
+        "text": "Daily cone-beam CT acquired for patient setup is blurred by breathing, so mcSART incorporates the patient's 5DCT deformation fields into an iterative reconstruction that recovers tumor edges from those same projections and allows tumor size to be measured at each fraction.",
+        "people": "Andosca · Lauria · Low",
+        "figure": {"src": "assets/img/sart-vs-mcsart.png", "alt": "Two coronal cone-beam CT reconstructions of the same thorax: a standard reconstruction with motion blur on the left and a motion-compensated reconstruction with sharper lung and diaphragm edges on the right."}
+      },
+      {
+        "title": "Model stability over a treatment course",
+        "text": "A patient's motion model is built at simulation and used for weeks of treatment, so repeat 5DCT imaging during the course is used to test whether the model stays accurate and which patient factors predict change. Related work applies the same free-breathing data to lung elasticity and biomechanical models.",
+        "people": "Andosca · Lauria · Low",
+        "figure": null,
+        "pending": "Figure pending: repeat-scan model residuals"
+      }
+    ]
+  },
+  "milestones": {
+    "eyebrow": "Milestones",
+    "heading": "History of the technique",
+    "intro": "Dates taken from the publication record. The lab will correct and extend them."
+  },
+  "people": {
+    "eyebrow": "People",
+    "heading": "The team at UCLA",
+    "intro": "Faculty, trainees, and the doctoral students trained in the lab."
+  },
+  "publications": {
+    "eyebrow": "Publications",
+    "heading": "Peer-reviewed publications",
+    "intro": "{count} papers by the lab and its collaborators, from the original breathing motion model to the clinical workflow. Seeded automatically from PubMed and grouped by year, with current lab members in bold."
+  },
+  "presentations": {
+    "eyebrow": "Presentations and posters",
+    "heading": "Conference work",
+    "intro": "Posters and abstracts associated with the project. Faculty talks and earlier student presentations to be added."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Contact and collaboration",
+    "intro": "How to reach the team, and how prospective students apply.",
+    "paragraphs": [
+      "The 5DCT Lab is part of the medical physics research program in the UCLA Department of Radiation Oncology. Physicists and physicians interested in the technique, its clinical implementation, or collaboration on free-breathing CT data can reach the team by email.",
+      "Prospective doctoral students apply through the UCLA Physics and Biology in Medicine graduate program."
+    ],
+    "details": [
+      ["Department", "Department of Radiation Oncology, David Geffen School of Medicine at UCLA"],
+      ["Location", "Los Angeles, California"],
+      ["Email", "Team alias to be created"],
+      ["Principal investigator", "Daniel Low, dlow@mednet.ucla.edu"],
+      ["Graduate program", "Physics and Biology in Medicine, https://pbm.ucla.edu/"]
+    ]
+  },
+  "footer_note": "Built from the lab's publication record."
+}

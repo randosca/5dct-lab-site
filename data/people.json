@@ -1,0 +1,97 @@
+{
+  "groups": [
+    {
+      "title": "Faculty",
+      "people": [
+        {
+          "name": "Daniel A. Low",
+          "credentials": "PhD",
+          "initials": "DL",
+          "title": "Professor and Vice Chair of Medical Physics Research and Innovation, Department of Radiation Oncology, UCLA",
+          "role": "Principal investigator",
+          "bio": "Developed the breathing motion model behind 5DCT in 2005 and has led its development and clinical implementation at UCLA. A.B. in Physics, Occidental College; Ph.D. in Physics, Indiana University. Recipient of the 2026 ASTRO Gold Medal.",
+          "links": [
+            ["UCLA Health profile", "https://www.uclahealth.org/cancer/members/daniel-low"],
+            ["Google Scholar", "https://scholar.google.com/citations?user=4yrljBMAAAAJ"]
+          ]
+        },
+        {
+          "name": "Drew Moghanaki",
+          "credentials": "MD, MPH",
+          "initials": "DM",
+          "title": "Professor and Chief of Thoracic Oncology, Department of Radiation Oncology, UCLA. Stanley Iezman and Nancy Stark Endowed Chair in Thoracic Radiation Oncology Research",
+          "role": "Clinical lead, thoracic radiation oncology",
+          "bio": "Thoracic radiation oncologist and clinical partner for 5DCT in lung cancer treatment planning. Leads national lung cancer research including the VALOR trial of stereotactic radiotherapy versus surgery. M.D., Vanderbilt University; residency, University of Pennsylvania. ASTRO Fellow, 2025.",
+          "links": [
+            ["UCLA Health profile", "https://www.uclahealth.org/providers/drew-moghanaki"]
+          ]
+        },
+        {
+          "name": "Michael V. Lauria",
+          "credentials": "PhD",
+          "initials": "ML",
+          "title": "Assistant Professor, Department of Radiation Oncology, UCLA",
+          "role": "Faculty; clinical workflow and motion-compensated CBCT",
+          "bio": "Completed his Ph.D. in the lab in 2022 on applications of breathing motion dynamics from fast-helical free-breathing CT, then the UCLA medical physics residency, and joined the faculty in 2024. Led the retrospective analysis of the first clinical 5DCT workflow and the motion-compensated cone-beam CT pilot study.",
+          "links": [
+            ["Academic website", "https://michaelvlauria.owlstown.net/"],
+            ["Google Scholar", "https://scholar.google.com/citations?user=_cwcXXYAAAAJ"],
+            ["Dissertation", "https://escholarship.org/uc/item/1jf5370j"]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Trainees and recent graduates",
+      "people": [
+        {
+          "name": "Claudia R. Miller",
+          "credentials": "PhD",
+          "initials": "CM",
+          "title": "Resident, Department of Radiation Oncology, UCLA",
+          "role": "Recent graduate; clinical 5DCT workflow",
+          "bio": "Ph.D. in Physics and Biology in Medicine, 2026. Her dissertation improved the clinical 5DCT workflow with diaphragm-based calibration of the breathing signal and a 4DCT HiFi backup, then measured how 4DCT- and 5DCT-defined target volumes differ in blinded physician contouring and in the resulting dose distributions.",
+          "links": [
+            ["Google Scholar", "https://scholar.google.com/citations?user=ykBY7UAAAAAJ"],
+            ["Dissertation", "https://escholarship.org/uc/item/1m2760q3"]
+          ]
+        },
+        {
+          "name": "Ryan Andosca",
+          "credentials": "MS",
+          "initials": "RA",
+          "title": "Ph.D. candidate, Physics and Biology in Medicine, UCLA",
+          "role": "Graduate student researcher",
+          "bio": "Advanced to candidacy in 2026. Works on correcting 5DCT images for ventilation-induced density change, density-based regional ventilation mapping, motion-compensated cone-beam CT for tracking tumor response during treatment, and the stability of patient-specific motion models over a course of radiotherapy.",
+          "links": []
+        }
+      ]
+    }
+  ],
+  "lineage_heading": "Doctoral lineage",
+  "lineage": [
+    {
+      "year": "2022",
+      "name": "Michael V. Lauria",
+      "thesis": "Applications of Breathing Motion Dynamics Derived from Fast-Helical Free-Breathing CT",
+      "now": "Assistant Professor, UCLA Radiation Oncology",
+      "link": "https://escholarship.org/uc/item/1jf5370j"
+    },
+    {
+      "year": "2026",
+      "name": "Claudia R. Miller",
+      "thesis": "Development and Assessment of the Clinical 5DCT Workflow for use in Respiratory Motion Management for Radiation Therapy",
+      "now": "Resident, UCLA Radiation Oncology",
+      "link": "https://escholarship.org/uc/item/1m2760q3"
+    },
+    {
+      "year": "In progress",
+      "name": "Ryan Andosca",
+      "thesis": "Advancing 5DCT for Lung Radiotherapy: Ventilation Characterization, Motion-Compensated CBCT, and Longitudinal Model Stability",
+      "now": "Candidate since 2026",
+      "open": true
+    }
+  ],
+  "alumni_note": "Alumni and lineage to confirm with Dan. The publication record also names Dylan O'Connell, Tai Dou, David Thomas, Benjamin White, Tianyu Zhao, Katelyn Hasse, Bradley Stiehl, John Ginn, Peter Boyle, Louise Naumann, and Minji Kim. Their degrees, years, and current positions belong here.",
+  "collaborators": "Frequent collaborators in the publication record: Anand Santhanam, Jack Neylon, Ricky Savjani, James Lamb, John Lewis, Igor Barjaktarevic, and Jonathan Goldin."
+}
