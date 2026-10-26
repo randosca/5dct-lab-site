@@ -18,7 +18,10 @@ JavaScript build, no dependencies beyond Python 3.
 | `/presentations/<slug>/` | One poster: full-size image and PDF download | `data/presentations.json` |
 | `/contact/` | Contact and collaboration | `data/site.json` |
 
-Images go in `assets/img/` and poster files in `assets/posters/`. Open items are listed in `TODO.md`.
+Images go in `assets/img/`, poster files in `assets/posters/`, and video clips in `assets/video/`
+(silent H.264 MP4s of 1 MB or less, each with a `-poster.jpg` frame; made with ffmpeg:
+`ffmpeg -i in.mov -an -vf "scale=960:-2,fps=30,format=yuv420p" -c:v libx264 -crf 25 -movflags +faststart out.mp4`).
+Open items are listed in `TODO.md`.
 
 ## Editing content
 

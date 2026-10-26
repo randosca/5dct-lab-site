@@ -7,21 +7,24 @@ still missing or unconfirmed.
 
 - [ ] Headshots for everyone listed (initials are shown until then)
 - [x] Figures from Dan's lecture deck on the method and research pages (added 2026-10-25)
-- [ ] Videos from Dan's lecture deck: 4DCT vs 5DCT image quality (slide 4), fast-helical acquisition (slide 14),
-      registration feedback (slide 18), accuracy trio (slide 33). All H.264; need compression to 1 to 3 MB each
-      with ffmpeg or HandBrake before they go on the home and method pages
+- [x] Videos from Dan's lecture deck compressed and placed (2026-10-25): 4DCT vs 5DCT cine on the home page,
+      acquisition animation, two-view breathing result, and the accuracy trio on the method page
+- [ ] Confirm the two-view breathing clip on the method page (slide 4, left) is a 5DCT reconstruction
+- [ ] The registration-feedback clip (slide 18) and the viewer clip (slide 26) are screen recordings with desktop
+      chrome; crop and add them only if wanted
 - [ ] A true repeat-scan figure for the model stability card (the population model-error plot is a stand-in)
-- [ ] Dan's two talks are listed without files. Ask Dan whether to post the slides as PDFs, and confirm the dates
-      and venues (both assumed 2026)
-- [ ] Other faculty talks and earlier student presentations for the posters page
+- [x] Dan's decks will not be posted; only their information and images are used (decided 2026-10-25)
+- [ ] Faculty talks and earlier student presentations for the posters page, with confirmed dates and venues
+- [ ] Ask Dan what "Model Updating (CBCT)" on slide 36 of the lecture deck refers to; the site now says
+      "CBCT deblurred with the motion model"
 - [x] PDFs of the 2023 AAPM ePosters (exported from PowerPoint 2026-10-25)
 - [ ] Alumni and the full doctoral lineage with degrees, years, and current positions. Candidates from the
       publication record: Dylan O'Connell, Tai Dou, David Thomas, Benjamin White, Tianyu Zhao, Katelyn Hasse,
       Bradley Stiehl, John Ginn, Peter Boyle, Louise Naumann, Minji Kim
 - [x] Collaborators listed on the people page from Dan's acknowledgements slide. Still to decide: Anand Santhanam
       and John Lewis, who appear in the publication record but not on that slide
-- [ ] Funding and disclosures: Dan's decks acknowledge Varian Medical Systems and disclose Respirati, the company
-      formed to support 5DCT commercialization. Whether and how the site mentions these is Dan's call
+- [x] Funding and disclosures (Varian Medical Systems; Respirati) are left off the site unless Dan or Drew ask
+      for them (decided 2026-10-25)
 - [ ] A team email alias for the contact page
 
 ## Facts to confirm

@@ -92,6 +92,13 @@ figure{margin:0}
 figcaption{font-size:.86rem;color:var(--ink-2);margin-top:10px;line-height:1.5}
 figcaption .lab{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-right:8px}
 
+/* video clips */
+.vid video{width:100%;display:block;background:var(--img-bg)}
+.vlabel{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.hero-videos{display:grid;gap:14px}
+.trio{margin-top:32px}
+.trio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+
 /* breathing trace */
 .wave{display:block;width:100%;height:84px;margin:36px 0 0}
 .wave polyline{fill:none;stroke:var(--accent);stroke-width:1.3;opacity:.75}
@@ -253,7 +260,7 @@ dl.details dd{margin:0}
   .cards,.goals,.stages,.collab,.directions{grid-template-columns:1fr}
 }
 @media (max-width:600px){
-  .people,.posters,.lineage,.index{grid-template-columns:1fr}
+  .people,.posters,.lineage,.index,.trio-grid{grid-template-columns:1fr}
   .timeline li,.pubyear{grid-template-columns:1fr;gap:6px}
   .nav ul{gap:14px}
   .stats{grid-template-columns:1fr}

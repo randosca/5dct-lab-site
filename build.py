@@ -71,6 +71,30 @@ def figure(fig, prefix, cls="ct", lazy=True):
             f'{cap}</figure>')
 
 
+def video_tag(v, prefix, cls="ct"):
+    """A silent, looping clip with a poster frame; the page script pauses it for reduced-motion viewers."""
+    return (f'<div class="{cls} vid"><video autoplay muted loop playsinline preload="metadata"'
+            f' poster="{e(prefix + v["poster"])}" aria-label="{e(v["alt"])}">'
+            f'<source src="{e(prefix + v["src"])}" type="video/mp4"></video></div>')
+
+
+def video_figure(v, prefix, cls="ct"):
+    cap = ""
+    if v.get("caption"):
+        label = f'<span class="lab">{e(v["label"])}</span>' if v.get("label") else ""
+        cap = f'<figcaption>{label}{e(v["caption"])}</figcaption>'
+    return f'<figure>{video_tag(v, prefix, cls)}{cap}</figure>'
+
+
+def labeled_clips(clips, prefix):
+    return "".join(f'<div><p class="vlabel">{e(v["label"])}</p>{video_tag(v, prefix)}</div>' for v in clips)
+
+
+REDUCED_MOTION_SCRIPT = ('<script>if(matchMedia("(prefers-reduced-motion: reduce)").matches){'
+                         'document.querySelectorAll("video[autoplay]").forEach(function(v){'
+                         'v.removeAttribute("autoplay");v.pause();v.controls=true;});}</script>')
+
+
 def breathing_trace(width=1120, height=84, points=640, seed=5):
     """A deterministic free-breathing trace: fast inhale, slower exhale, varying period, slow drift."""
     rng = random.Random(seed)
@@ -124,7 +148,7 @@ def page(site, prefix, current, title, description, body):
     if current:
         body = f'<section class="page"><div class="wrap">{body}</div></section>'
     html_body = "".join(['<a class="skip" href="#main">Skip to content</a>', notice, nav(site, prefix, current),
-                         f'<main id="main">{body}</main>', footer(site)])
+                         f'<main id="main">{body}</main>', footer(site), REDUCED_MOTION_SCRIPT])
     doc = (TPL / "base.html").read_text(encoding="utf-8")
     for key, val in {"title": e(title), "description": e(description), "fonts": FONTS,
                      "css": (TPL / "site.css").read_text(encoding="utf-8"), "body": html_body}.items():
@@ -143,6 +167,11 @@ def hero(site, prefix):
         for sym, label in h["dims"])
     stats = "".join(f'<div class="stat"><div class="n">{e(s["n"])}</div><div class="l">{e(s["l"])}</div></div>'
                     for s in site["stats"])
+    if h.get("videos"):
+        visual = (f'<figure class="hero-videos">{labeled_clips(h["videos"], prefix)}'
+                  f'<figcaption>{e(h["video_caption"])}</figcaption></figure>')
+    else:
+        visual = figure(h["figure"], prefix, lazy=False)
     return (
         f'<section class="hero"><div class="wrap">'
         f'<div><div class="dims" aria-label="The five dimensions">{dims}</div>'
@@ -150,7 +179,7 @@ def hero(site, prefix):
         f'<p class="lede"><strong>{e(h["lede_strong"])}</strong>{e(h["lede"])}</p>'
         f'<div class="cta"><a class="btn primary" href="{e(prefix + h["primary"][0] + "/")}">{e(h["primary"][1])}</a>'
         f'<a class="btn" href="{e(prefix + h["secondary"][0] + "/")}">{e(h["secondary"][1])}</a></div></div>'
-        f'{figure(h["figure"], prefix, lazy=False)}'
+        f'{visual}'
         f'</div><div class="wrap">{breathing_trace()}<div class="stats">{stats}</div></div></section>'
     )
 
@@ -199,13 +228,21 @@ def method(site, prefix):
     sampling_html = (f'<div class="sub"><h2>{e(sampling["heading"])}</h2><div class="two">'
                      f'<div class="text flow">{paragraphs(sampling["paragraphs"])}</div>'
                      f'{figure(sampling["figure"], prefix)}</div></div>')
+    acquisition = (f'<div style="margin-bottom:28px">{video_figure(m["acquisition_video"], prefix)}</div>'
+                   if m.get("acquisition_video") else "")
+    result = (f'<div class="wide">{video_figure(m["result_video"], prefix)}</div>' if m.get("result_video") else "")
     how_html = (f'<div class="sub"><h2>{e(m["how_heading"])}</h2><div class="two">'
                 f'<div class="text flow">{paragraphs(m["paragraphs"])}{equation}</div>'
-                f'<div><ol class="steps">{steps}</ol><div style="margin-top:28px">{figure(m["figure"], prefix)}</div></div>'
-                f'</div></div>')
+                f'<div>{acquisition}<ol class="steps">{steps}</ol>'
+                f'<div style="margin-top:28px">{figure(m["figure"], prefix)}</div></div>'
+                f'</div>{result}</div>')
+    trio_html = ""
+    if quality.get("trio"):
+        trio_html = (f'<figure class="trio"><div class="trio-grid">{labeled_clips(quality["trio"]["clips"], prefix)}</div>'
+                     f'<figcaption>{e(quality["trio"]["caption"])}</figcaption></figure>')
     quality_html = (f'<div class="sub"><h2>{e(quality["heading"])}</h2><div class="two">'
                     f'<div class="text flow">{paragraphs(quality["paragraphs"])}</div>'
-                    f'{figure(quality["figure"], prefix)}</div>'
+                    f'{figure(quality["figure"], prefix)}</div>{trio_html}'
                     f'<div class="wide">{figure(quality["flowchart"], prefix, "light")}</div></div>')
     return (f'{section_head(m, "h1")}<div class="wide">{figure(m["workflow_figure"], prefix, "light")}</div>'
             f'{sampling_html}{how_html}{quality_html}')

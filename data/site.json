@@ -20,12 +20,11 @@
     "lede": " is the UCLA Radiation Oncology team behind five-dimensional CT, a model-based CT simulation technique that replaces 4DCT phase sorting with a patient-specific breathing motion model. It has been part of routine clinical practice at UCLA since 2019.",
     "primary": ["method", "How it works"],
     "secondary": ["publications", "Publications"],
-    "figure": {
-      "src": "assets/img/4dct-vs-5dct.jpg",
-      "alt": "Coronal and sagittal lung CT slices for four patients, clinical 4DCT on the left and 5DCT on the right. The 4DCT images show diaphragm doubling and streaking; the 5DCT images do not.",
-      "label": "4DCT vs 5DCT",
-      "caption": "Clinical 4DCT (left) and 5DCT (right) for four patients. The diaphragm doubling and streaking in the 4DCT images are phase-sorting artifacts from irregular breathing, which the model-based reconstruction avoids."
-    }
+    "videos": [
+      {"label": "4DCT", "src": "assets/video/4dct-cine.mp4", "poster": "assets/video/4dct-cine-poster.jpg", "alt": "Coronal 4DCT cine of a lung tumor looping through the breathing phases, with phase-sorting artifacts near the diaphragm."},
+      {"label": "5DCT", "src": "assets/video/5dct-cine.mp4", "poster": "assets/video/5dct-cine-poster.jpg", "alt": "Coronal 5DCT cine of the same patient looping through the breathing cycle without sorting artifacts."}
+    ],
+    "video_caption": "The same patient on 4DCT (top) and 5DCT (bottom), looping through the breathing cycle."
   },
   "stats": [
     {"n": "25", "l": "fast-helical scans per session"},
@@ -75,6 +74,20 @@
       }
     },
     "how_heading": "How it works",
+    "acquisition_video": {
+      "src": "assets/video/acquisition-animation.mp4",
+      "poster": "assets/video/acquisition-animation-poster.jpg",
+      "alt": "Animation of fast-helical scanning: a red line sweeps through a coronal image while a plot traces couch position against breathing amplitude for successive scans.",
+      "label": "Acquisition",
+      "caption": "Scanning while the patient breathes, with a simultaneous surrogate. Each slice is assigned the surrogate value at the moment it is acquired, and 25 passes sample many breaths."
+    },
+    "result_video": {
+      "src": "assets/video/breathing-two-views.mp4",
+      "poster": "assets/video/breathing-two-views-poster.jpg",
+      "alt": "Coronal and sagittal 5DCT breathing-phase images looping through the breathing cycle.",
+      "label": "Result",
+      "caption": "Breathing-phase images reconstructed with 5DCT, coronal and sagittal."
+    },
     "paragraphs": [
       "Radiotherapy for lung cancer depends on knowing where a tumor is and how far it moves during breathing. The clinical standard, four-dimensional CT (4DCT), records a breathing signal during scanning and sorts the projection data into eight to ten phase bins. When breathing is irregular the bins are undersampled or inconsistent, and the reconstructed images show diaphragm doubling, streaking, and blurring. Surveys report that 5 to 14% of patients are rescanned because of these artifacts, and 4DCT provides no measure of its own reconstruction quality.",
       "In 5DCT the sorting step is replaced by a patient-specific motion model fit to the scans themselves. The patient breathes freely while the scanner acquires 25 fast helical scans in about two minutes and a pneumatic bellows around the upper abdomen records breathing amplitude, after which every scan is deformably registered to a reference scan and a motion model relating tissue position to breathing amplitude and breathing rate is fit at each voxel. The five dimensions are the three spatial coordinates plus these two respiratory parameters.",
@@ -105,6 +118,14 @@
         "alt": "Sagittal projection of one lung colored from green to red by maximum model residual, with a red region of about 5 millimeters near the posterior base and green edges near zero.",
         "label": "Model residual",
         "caption": "Maximum model residual error projected over one patient's lung, in millimeters. The map shows planners where the model is least certain."
+      },
+      "trio": {
+        "clips": [
+          {"label": "4DCT", "src": "assets/video/accuracy-4dct.mp4", "poster": "assets/video/accuracy-4dct-poster.jpg", "alt": "Close-up cine of a lung tumor in 4DCT."},
+          {"label": "Accuracy check", "src": "assets/video/accuracy-check.mp4", "poster": "assets/video/accuracy-check-poster.jpg", "alt": "Close-up cine of the 25 scans deformed to a common breathing amplitude by the model; the tumor stays nearly in place."},
+          {"label": "5D video", "src": "assets/video/accuracy-5dct.mp4", "poster": "assets/video/accuracy-5dct-poster.jpg", "alt": "Close-up cine of the same tumor in the 5DCT reconstruction."}
+        ],
+        "caption": "Left: the 4DCT. Center: the accuracy check, in which the model deforms the 25 scans to a common reference amplitude; a tumor that stays put shows model accuracy, and rigid registration quantifies the remaining jump. Right: the 5DCT, which distills the irregular breathing into motion that reflects the overall amplitudes and hysteresis."
       },
       "flowchart": {
         "src": "assets/img/technique-flowchart.jpg",
@@ -157,7 +178,7 @@
       "stages": [
         {"name": "CT simulation", "items": ["5DCT"]},
         {"name": "Dosimetry", "items": ["Automated treatment planning"]},
-        {"name": "Treatment room", "items": ["Positioning, treating, and gating", "Model updating with CBCT", "Real-time verification"]}
+        {"name": "Treatment room", "items": ["Positioning, treating, and gating", "CBCT deblurred with the motion model", "Real-time verification"]}
       ],
       "tagline": "Automated, standardized, reliable"
     }
