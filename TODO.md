@@ -12,7 +12,8 @@ still missing or unconfirmed.
       spreadsheet and lightly updated (Claudia now a resident, Michael now faculty, Peter graduated,
       Minji and Ryan candidates)
 - [ ] Peter Boyle: current position, dissertation title, and year for the lineage list
-- [ ] Claudia: confirm "medical physics resident" wording and a working LinkedIn address
+- [x] Claudia: UCLA Health profile linked at her request; title matches the profile ("Radiation Oncology Resident");
+      LinkedIn linked (2026-10-26)
 - [x] Figures from Dan's lecture deck on the method and research pages (added 2026-10-25)
 - [x] Videos from Dan's lecture deck compressed and placed (2026-10-25): 4DCT vs 5DCT cine on the home page,
       acquisition animation and the accuracy trio on the method page. The two-view breathing clip from slide 4
@@ -39,7 +40,6 @@ still missing or unconfirmed.
 
 ## Facts to confirm
 
-- [ ] Claudia Miller's current title (listed as Resident, UCLA Radiation Oncology)
 - [ ] Dan Low's 2010 start date at UCLA, and his title wording
 - [ ] "300+ lung cancer patients planned with 5DCT" on the home page
 - [ ] Drew Moghanaki's role line and bio

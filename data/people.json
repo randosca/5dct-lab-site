@@ -119,12 +119,14 @@
           "credentials": "PhD",
           "initials": "CM",
           "photo": "assets/img/people/miller-claudia.jpg",
-          "title": "Medical physics resident, Department of Radiation Oncology, UCLA",
+          "title": "Radiation Oncology Resident, Department of Radiation Oncology, UCLA",
           "role": "Clinical 5DCT workflow",
-          "bio": "Claudia Miller is a medical physics resident in the UCLA Department of Radiation Oncology. She graduated from Wayne State University in 2021 with a BSE in Biomedical Engineering and a concentration in instrumentation, and completed her Ph.D. in the Physics and Biology in Medicine program at UCLA in 2026. Her research focused on improvements to the 5D protocol and clinical implementation of the 5D 2.0 software, including incorporating the diaphragm dome into the calibration of the breathing surrogate. Her earlier work in the lab brought the 5D workflow into a novel reconstruction technique for CBCT imaging, MCSART, with Dr. Michael Lauria.",
+          "bio": "Claudia Miller is a resident in the UCLA Department of Radiation Oncology. She graduated from Wayne State University in 2021 with a BSE in Biomedical Engineering and a concentration in instrumentation, and completed her Ph.D. in the Physics and Biology in Medicine program at UCLA in 2026. Her research focused on improvements to the 5D protocol and clinical implementation of the 5D 2.0 software, including incorporating the diaphragm dome into the calibration of the breathing surrogate. Her earlier work in the lab brought the 5D workflow into a novel reconstruction technique for CBCT imaging, MCSART, with Dr. Michael Lauria.",
           "links": [
+            ["UCLA Health profile", "https://www.uclahealth.org/departments/radonc/education/residents/claudia-miller-phd"],
             ["Google Scholar", "https://scholar.google.com/citations?user=ykBY7UAAAAAJ"],
-            ["Dissertation", "https://escholarship.org/uc/item/1m2760q3"]
+            ["Dissertation", "https://escholarship.org/uc/item/1m2760q3"],
+            ["LinkedIn", "https://www.linkedin.com/in/claudia-r-miller-65194014b/"]
           ]
         },
         {
@@ -159,7 +161,7 @@
       "year": "2026",
       "name": "Claudia R. Miller",
       "thesis": "Development and Assessment of the Clinical 5DCT Workflow for use in Respiratory Motion Management for Radiation Therapy",
-      "now": "Medical physics resident, UCLA Radiation Oncology",
+      "now": "Resident, UCLA Radiation Oncology",
       "link": "https://escholarship.org/uc/item/1m2760q3"
     },
     {
