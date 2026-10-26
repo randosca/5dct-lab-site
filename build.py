@@ -172,16 +172,43 @@ def contents(site, prefix, pub_count):
 # Section pages
 # ---------------------------------------------------------------------------
 
+def goals(site, prefix):
+    """Home page: the lab's programmatic goals in Dan Low's words, beside an outside assessment of 5DCT."""
+    g = site.get("goals")
+    if not g:
+        return ""
+    items = "".join(f"<li>{e(i)}</li>" for i in g["items"])
+    q = g["quote"]
+    return (f'<section class="section"><div class="wrap"><div class="goals">'
+            f'<div><p class="eyebrow">{e(g["eyebrow"])}</p><p class="lead">{e(g["lead"])}</p><ul>{items}</ul></div>'
+            f'<blockquote class="quote"><p>{e(q["text"])}</p>'
+            f'<cite>{e(q["cite"])} <a href="{e(q["url"])}">{e(q["link_text"])}</a></cite></blockquote>'
+            f'</div></div></section>')
+
+
+def paragraphs(items):
+    return "".join(f"<p>{e(p)}</p>" for p in items)
+
+
 def method(site, prefix):
     m = site["method"]
-    paras = "".join(f"<p>{e(p)}</p>" for p in m["paragraphs"])
     steps = "".join(f'<li><div><h3>{e(s["title"])}</h3><p>{e(s["text"])}</p></div></li>' for s in m["steps"])
     equation = ('<div class="eq"><div class="f">X(<b>v</b>, <b>f</b>) = X&#8320; + &#945;&#183;<b>v</b> + &#946;&#183;<b>f</b></div>'
                 f'<p class="legend">{e(m["equation_legend"])}</p></div>')
-    return (f'{section_head(m, "h1")}'
-            f'<div class="two"><div class="text flow">{paras}{equation}</div>'
-            f'<div><ol class="steps">{steps}</ol><div style="margin-top:28px">{figure(m["figure"], prefix)}</div></div>'
-            f'</div>')
+    sampling, quality = m["sampling"], m["quality"]
+    sampling_html = (f'<div class="sub"><h2>{e(sampling["heading"])}</h2><div class="two">'
+                     f'<div class="text flow">{paragraphs(sampling["paragraphs"])}</div>'
+                     f'{figure(sampling["figure"], prefix)}</div></div>')
+    how_html = (f'<div class="sub"><h2>{e(m["how_heading"])}</h2><div class="two">'
+                f'<div class="text flow">{paragraphs(m["paragraphs"])}{equation}</div>'
+                f'<div><ol class="steps">{steps}</ol><div style="margin-top:28px">{figure(m["figure"], prefix)}</div></div>'
+                f'</div></div>')
+    quality_html = (f'<div class="sub"><h2>{e(quality["heading"])}</h2><div class="two">'
+                    f'<div class="text flow">{paragraphs(quality["paragraphs"])}</div>'
+                    f'{figure(quality["figure"], prefix)}</div>'
+                    f'<div class="wide">{figure(quality["flowchart"], prefix, "light")}</div></div>')
+    return (f'{section_head(m, "h1")}<div class="wide">{figure(m["workflow_figure"], prefix, "light")}</div>'
+            f'{sampling_html}{how_html}{quality_html}')
 
 
 def research(site, prefix):
@@ -191,11 +218,26 @@ def research(site, prefix):
         if c.get("figure"):
             fig = (f'<div class="fig"><img src="{e(prefix + c["figure"]["src"])}" alt="{e(c["figure"]["alt"])}"'
                    f' loading="lazy"></div>')
+        elif c.get("pending"):
+            fig = f'<div class="fig pending">{e(c["pending"])}</div>'
         else:
-            fig = f'<div class="fig pending">{e(c.get("pending", "Figure pending"))}</div>'
+            fig = ""
         cards.append(f'<article class="card">{fig}<div class="body"><h3>{e(c["title"])}</h3>'
                      f'<p>{e(c["text"])}</p><div class="who">{e(c["people"])}</div></div></article>')
-    return f'{section_head(r, "h1")}<div class="cards">{"".join(cards)}</div>'
+    more = "".join(f'<div class="direction"><h3>{e(d["title"])}</h3><p>{e(d["text"])}</p>'
+                   f'<div class="who">{e(d["people"])}</div></div>' for d in r.get("more", []))
+    more_html = f'<div class="directions">{more}</div>' if more else ""
+    workflow_html = ""
+    w = r.get("workflow")
+    if w:
+        stages = []
+        for s in w["stages"]:
+            items = "".join(f"<li>{e(i)}</li>" for i in s["items"])
+            stages.append(f'<div class="stage"><p class="eyebrow">{e(s["name"])}</p><ul>{items}</ul></div>')
+        intro = f'<p class="intro">{e(w["intro"])}</p>' if w.get("intro") else ""
+        workflow_html = (f'<div class="sub"><h2>{e(w["heading"])}</h2>{intro}<div class="stages">{"".join(stages)}</div>'
+                         f'<p class="tagline">{e(w["tagline"])}</p></div>')
+    return f'{section_head(r, "h1")}<div class="cards">{"".join(cards)}</div>{more_html}{workflow_html}'
 
 
 def milestones(site, items):
@@ -225,8 +267,14 @@ def people(site, data):
         link = f' <a href="{e(item["link"])}">dissertation</a>' if item.get("link") else ""
         lineage.append(f'<li class="{"open" if item.get("open") else ""}"><div class="y">{e(item["year"])}</div>'
                        f'<h4>{e(item["name"])}</h4><p>{e(item["thesis"])}{link}</p><p>{e(item["now"])}</p></li>')
+    collab = ""
+    if data.get("collaborators"):
+        cols = "".join(f'<div><h4>{e(c["group"])}</h4><p>{e(c["names"])}</p></div>' for c in data["collaborators"])
+        collab = (f'<div class="group"><h3>{e(data.get("collaborators_heading", "Collaborators"))}</h3>'
+                  f'<div class="collab">{cols}</div></div>')
     return (f'{section_head(site["people"], "h1")}{"".join(groups)}'
-            f'<div class="group"><h3>{e(data["lineage_heading"])}</h3><ol class="lineage">{"".join(lineage)}</ol></div>')
+            f'<div class="group"><h3>{e(data["lineage_heading"])}</h3><ol class="lineage">{"".join(lineage)}</ol></div>'
+            f'{collab}')
 
 
 def author_list(authors):
@@ -337,7 +385,7 @@ def build():
     sub = "../"
     # Each entry: output folder under _site, path prefix back to the site root, nav item to highlight,
     # page title, meta description, body HTML.
-    pages = [("", "", "", name, site["description"], hero(site, "") + contents(site, "", len(pubs)))]
+    pages = [("", "", "", name, site["description"], hero(site, "") + goals(site, "") + contents(site, "", len(pubs)))]
     for slug, cfg, body in [
         ("method", site["method"], method(site, sub)),
         ("research", site["research"], research(site, sub)),

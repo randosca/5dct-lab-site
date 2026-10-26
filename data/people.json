@@ -91,5 +91,11 @@
       "now": "Candidate since 2026",
       "open": true
     }
+  ],
+  "collaborators_heading": "Collaborators",
+  "collaborators": [
+    {"group": "UCLA Radiation Oncology", "names": "Dylan O'Connell, Ricky Savjani, Jack Neylon, James Lamb, Jie Deng"},
+    {"group": "UCLA Division of Pulmonary and Critical Care", "names": "Igor Barjaktarevic, MD, PhD"},
+    {"group": "UCLA Radiology", "names": "Jonathan Goldin, MD"}
   ]
 }

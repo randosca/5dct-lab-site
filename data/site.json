@@ -33,10 +33,48 @@
     {"n": "2019", "l": "routine clinical use at UCLA since"},
     {"n": "300+", "l": "lung cancer patients planned with 5DCT"}
   ],
+  "goals": {
+    "eyebrow": "Programmatic goals",
+    "lead": "Develop quantitative, reliable, and non-invasive methods for managing human breathing motion for radiation oncology.",
+    "items": [
+      "Artifact-free images for treatment planners",
+      "Quantitative breathing motion and breath-hold models for automated treatment planning",
+      "Processes for aligning and tracking tumors on-table",
+      "Validation throughout workflows",
+      "Integrating breath hold when desired"
+    ],
+    "quote": {
+      "text": "“I believe that our innovative community has already identified the key elements that can and should comprise the mainstream concept of ‘4DCT 2.0.’ We have an excellent benchmark … coming from Dr. Dan Low and colleagues, namely ‘5DCT.’”",
+      "cite": "Tryggestad, Li, and Rong, “4DCT is long overdue for improvement,” Journal of Applied Clinical Medical Physics, 2023.",
+      "url": "https://doi.org/10.1002/acm2.13933",
+      "link_text": "doi"
+    }
+  },
   "method": {
     "eyebrow": "The method",
     "heading": "What 5DCT is",
     "intro": "A model-based alternative to 4DCT for treatment planning when the target moves with breathing.",
+    "workflow_figure": {
+      "src": "assets/img/workflow-five-steps.png",
+      "alt": "Five numbered icons, a CT scanner, two sets of lungs, a breathing waveform, a computer, and a lung airway tree, labeled: collect 25 scans alongside the breathing signal, register the images, calibrate the breathing signal to the scan, fit a motion model to the breathing signal and scans, and create motion-free images.",
+      "label": "The workflow",
+      "caption": "Collect 25 scans alongside the breathing signal, register the images, calibrate the breathing signal to the scans, fit a motion model to the breathing signal and scans, and create motion-free images."
+    },
+    "sampling": {
+      "heading": "The sampling problem",
+      "paragraphs": [
+        "A conventional 4DCT is a long examination globally but a very short physiological observation locally. Each anatomical location is scanned for a few seconds, about one breath, so 4DCT is spatially comprehensive but temporally sparse, and the breath captured at one location can differ from the breath captured at the next.",
+        "Sorting cannot recover what was not sampled. Phase and displacement binning reorganize the available observations: they assign acquired data to respiratory bins, trade sensitivity to period irregularity against amplitude irregularity, and reduce some classes of sorting artifact, but they cannot create an observation of a respiratory state that never occurred while that anatomy was being scanned. Binning changes assignment; it does not add respiratory observations.",
+        "The commercial methods for acquiring breathing-cycle-resolved images, low-pitch helical and cine, share this sampling limit. The alternative is to sample for multiple minutes. Long scans are impractical because of dose, so 5DCT uses many fast scans, 25 of them, to sample the anatomy; the scans then measure the motion, and a model, an actual equation, interpolates and analyzes it."
+      ],
+      "figure": {
+        "src": "assets/img/5dct-vs-4dct-coronal.png",
+        "alt": "Coronal chest CT of one patient reconstructed with 5DCT on the left and 4DCT on the right, with the tumor outlined and arrowed. The 4DCT shows vertical banding and duplicated lung structures.",
+        "label": "5DCT vs 4DCT",
+        "caption": "5DCT (left) and 4DCT (right) for the same patient, tumor outlined. The banding and duplicated structures in the 4DCT come from phase sorting of irregular breaths."
+      }
+    },
+    "how_heading": "How it works",
     "paragraphs": [
       "Radiotherapy for lung cancer depends on knowing where a tumor is and how far it moves during breathing. The clinical standard, four-dimensional CT (4DCT), records a breathing signal during scanning and sorts the projection data into eight to ten phase bins. When breathing is irregular the bins are undersampled or inconsistent, and the reconstructed images show diaphragm doubling, streaking, and blurring. Surveys report that 5 to 14% of patients are rescanned because of these artifacts, and 4DCT provides no measure of its own reconstruction quality.",
       "In 5DCT the sorting step is replaced by a patient-specific motion model fit to the scans themselves. The patient breathes freely while the scanner acquires 25 fast helical scans in about two minutes and a pneumatic bellows around the upper abdomen records breathing amplitude, after which every scan is deformably registered to a reference scan and a motion model relating tissue position to breathing amplitude and breathing rate is fit at each voxel. The five dimensions are the three spatial coordinates plus these two respiratory parameters.",
@@ -46,8 +84,8 @@
     "equation_legend": "X₀ is the voxel's reference position, v the breathing amplitude, and f the breathing rate. α and β are fit per voxel from the 25 registered scans; β carries the hysteresis between inhalation and exhalation.",
     "steps": [
       {"title": "Acquire", "text": "25 fast helical free-breathing scans, each about 3 to 4 seconds, in alternating directions. The first scan uses a higher tube current and serves as the reference image."},
-      {"title": "Monitor", "text": "A bellows records breathing amplitude during every scan. Drift is removed by calibrating the signal to diaphragm position across the 25 scans, and breathing rate is taken as the time derivative."},
-      {"title": "Register", "text": "Each scan is deformably registered to the reference, giving a displacement field per scan. A second registration stage sharpens accuracy at the lung and chest wall interface."},
+      {"title": "Monitor", "text": "A bellows records breathing amplitude during every scan. Any quantitative, real-time, non-invasive surrogate would work, including RPM and surface imaging; the bellows is convenient for research and correlates well with internal motion. Drift is removed by calibrating the signal to diaphragm dome position across the 25 scans, with an RMS residual of 3.2% over 246 patients, and breathing rate is taken as the time derivative."},
+      {"title": "Register", "text": "Each scan is deformably registered to the reference with deedsBCV, with some subroutines replaced by GPU code: approximately 90 seconds per scan pair, 36 minutes in total, repeated for about 120 million voxels, 5 million of them lung. A second registration stage sharpens accuracy at the lung and chest wall interface."},
       {"title": "Model and reconstruct", "text": "α and β are fit per voxel. Phase images are generated at percentiles of the patient's own amplitude distribution, and the residual error of the model is displayed on the anatomy."}
     ],
     "figure": {
@@ -55,6 +93,25 @@
       "alt": "Photograph of a black pneumatic bellows strapped around a person's abdomen, and a plot of the bellows voltage over about 700 seconds showing breathing oscillations with a slow downward drift.",
       "label": "Breathing surrogate",
       "caption": "A pneumatic bellows worn around the upper abdomen (A) and its raw voltage trace over an acquisition (B). The slow downward drift is removed when the signal is calibrated to diaphragm position."
+    },
+    "quality": {
+      "heading": "Are the images correct?",
+      "paragraphs": [
+        "We get nice images, but are they correct? The model residual is easy to calculate: the measured position from the deformation vector field minus the model-predicted position, at every voxel. Projected over the lungs, the maximum residual shows where the model is least certain, and the error report for each patient accompanies the images into planning.",
+        "The original 25 scans are ground truths, fast conventional helical CT, and the model can predict them. Error is measured by rigidly registering the predicted and original tumor positions and validated by visual inspection: a tumor that does not move in the cine is a good accuracy measurement. A Hausdorff check of that measurement itself gives a 95th percentile of 0.4 ± 0.12 mm and a maximum of 0.67 mm."
+      ],
+      "figure": {
+        "src": "assets/img/model-residual-projection.jpg",
+        "alt": "Sagittal projection of one lung colored from green to red by maximum model residual, with a red region of about 5 millimeters near the posterior base and green edges near zero.",
+        "label": "Model residual",
+        "caption": "Maximum model residual error projected over one patient's lung, in millimeters. The map shows planners where the model is least certain."
+      },
+      "flowchart": {
+        "src": "assets/img/technique-flowchart.jpg",
+        "alt": "Five-panel flowchart: image acquisition with a breathing surrogate, deformable image registration to a reference scan, motion model solving with the equation X(v,f) = X0 + alpha v + beta f, deformation of the reference scan into target geometries, and accuracy evaluation comparing simulated and original helical scans.",
+        "label": "Accuracy evaluation",
+        "caption": "The technique as published: acquisition with a breathing surrogate, deformable registration, model solving, deformation of the reference scan into each target geometry, and accuracy evaluation against the original helical scans. Dou et al., International Journal of Radiation Oncology, Biology, Physics, 2015."
+      }
     }
   },
   "research": {
@@ -64,10 +121,9 @@
     "cards": [
       {
         "title": "Clinical 5DCT workflow",
-        "text": "The breathing signal is calibrated to diaphragm position measured in the scans themselves, and a 4DCT HiFi reconstruction serves as a backup when the model is not usable. Blinded physician contouring then shows how 4DCT- and 5DCT-defined target volumes differ and what those differences do to the dose distribution.",
+        "text": "The breathing signal is calibrated to diaphragm position measured in the scans themselves, and a 4DCT HiFi reconstruction serves as a backup when the model is not usable. Blinded physician contouring then shows how 4DCT- and 5DCT-defined target volumes differ and what those differences do to the dose distribution. In a prospective study of 20 patients with multiple blinded experts, the 4DCT- and 5DCT-defined target volumes differed by a Hausdorff distance of 8.8 ± 5.7 mm and a volume percent difference of 35 ± 25%.",
         "people": "Miller · Lauria · Moghanaki · Low",
-        "figure": null,
-        "pending": "Figure pending: 4DCT, 4DCT HiFi, and 5DCT comparison"
+        "figure": {"src": "assets/img/itv-agreement.jpg", "alt": "Axial, sagittal, and coronal CT panels for three patients with 4DCT and 5DCT internal target volume contours overlaid in red and blue, grouped as good, moderate, and poor agreement, with VPD, HD, MDA, DSC, and Jaccard values beside each row."}
       },
       {
         "title": "Ventilation from 5DCT",
@@ -83,12 +139,28 @@
       },
       {
         "title": "Model stability over a treatment course",
-        "text": "A patient's motion model is built at simulation and used for weeks of treatment, so repeat 5DCT imaging during the course is used to test whether the model stays accurate and which patient factors predict change. Related work applies the same free-breathing data to lung elasticity and biomechanical models.",
+        "text": "A patient's motion model is built at simulation and used for weeks of treatment, so repeat 5DCT imaging during the course is used to test whether the model stays accurate and which patient factors predict change. Across 107 patients the mean target model RMS error at simulation rises with breathing amplitude and stays below 1.5 mm for most patients. Related work applies the same free-breathing data to lung elasticity and biomechanical models.",
         "people": "Andosca · Lauria · Low",
-        "figure": null,
-        "pending": "Figure pending: repeat-scan model residuals"
+        "figure": {"src": "assets/img/model-error-population.jpg", "alt": "Scatter plot of mean target model RMS error against breathing amplitude, and a histogram of mean RMS error across 107 patients with most values below 1.5 millimeters."}
       }
-    ]
+    ],
+    "more": [
+      {
+        "title": "Automated treatment planning",
+        "text": "With breathing motion known, the planning system could use breathing motion information to guide and accurately predict dose, which matters most for proton therapy. Automation is not generally possible with 4DCT: some patients breathe irregularly, and 4DCT inaccurately measures motion.",
+        "people": "Low"
+      }
+    ],
+    "workflow": {
+      "heading": "5DCT across the radiation therapy workflow",
+      "intro": "Robust downstream applications are unavailable with 4DCT: automated treatment planning, and CBCT without artifacts and with quantitative motion measurement. Model-based CT may provide the solution, with growing evidence of its accuracy and a need for broader, multi-institutional clinical testing.",
+      "stages": [
+        {"name": "CT simulation", "items": ["5DCT"]},
+        {"name": "Dosimetry", "items": ["Automated treatment planning"]},
+        {"name": "Treatment room", "items": ["Positioning, treating, and gating", "Model updating with CBCT", "Real-time verification"]}
+      ],
+      "tagline": "Automated, standardized, reliable"
+    }
   },
   "milestones": {
     "eyebrow": "Milestones",

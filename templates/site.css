@@ -193,6 +193,42 @@ figcaption .lab{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em
 .poster .cardlink:hover img{opacity:.92}
 .poster .au{font-size:.85rem;color:var(--ink-2)}
 
+/* home: programmatic goals beside an outside assessment */
+.goals{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.goals .lead{font-size:1.15rem;line-height:1.5;color:var(--ink);max-width:30em}
+.goals ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.goals li{padding-left:18px;position:relative;color:var(--ink-2);font-size:.97rem}
+.goals li::before{content:"";position:absolute;left:0;top:.65em;width:8px;height:1px;background:var(--accent)}
+.quote{margin:0;border-left:2px solid var(--accent-2);padding:4px 0 4px 22px}
+.quote p{font-size:1.1rem;line-height:1.55;color:var(--ink)}
+.quote cite{display:block;margin-top:12px;font-style:normal;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-2);line-height:1.6}
+
+/* subsections and wide figures on the method and research pages */
+.sub{margin-top:64px}
+.sub h2{font-size:clamp(1.4rem,2.4vw,1.8rem);margin-bottom:20px}
+.sub .intro{margin:-6px 0 24px;font-size:1.05rem;color:var(--ink-2);max-width:var(--measure)}
+.wide{margin-top:36px}
+.light{background:#FFFFFF;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.light img{width:100%}
+
+/* research: text-only directions and the workflow stages */
+.directions{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.direction{padding-top:20px;border-top:1px solid var(--line)}
+.direction h3{font-size:1.1rem;margin-bottom:8px}
+.direction p{font-size:.96rem;color:var(--ink-2)}
+.direction .who{margin-top:12px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-3)}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.stage{padding-top:16px;border-top:2px solid var(--accent)}
+.stage .eyebrow{margin-bottom:8px}
+.stage ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.stage li{font-size:.98rem;color:var(--ink)}
+.tagline{margin-top:20px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2)}
+
+/* people: collaborators */
+.collab{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.collab h4{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:8px}
+.collab p{font-size:.95rem;color:var(--ink-2)}
+
 /* poster detail page */
 .poster-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:-8px}
 .poster-actions .back{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;margin-left:auto}
@@ -214,7 +250,7 @@ dl.details dd{margin:0}
   .stat{padding:16px 20px}
   .stat:nth-child(odd){border-left:0;padding-left:0}
   .people,.posters,.lineage,.index{grid-template-columns:repeat(2,1fr)}
-  .cards{grid-template-columns:1fr}
+  .cards,.goals,.stages,.collab,.directions{grid-template-columns:1fr}
 }
 @media (max-width:600px){
   .people,.posters,.lineage,.index{grid-template-columns:1fr}
