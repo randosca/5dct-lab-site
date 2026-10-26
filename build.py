@@ -73,7 +73,7 @@ def figure(fig, prefix, cls="ct", lazy=True):
 
 def video_tag(v, prefix, cls="ct"):
     """A silent, looping clip with a poster frame; the page script pauses it for reduced-motion viewers."""
-    return (f'<div class="{cls} vid"><video autoplay muted loop playsinline preload="metadata"'
+    return (f'<div class="{cls} vid"><video autoplay muted loop playsinline preload="auto"'
             f' poster="{e(prefix + v["poster"])}" aria-label="{e(v["alt"])}">'
             f'<source src="{e(prefix + v["src"])}" type="video/mp4"></video></div>')
 
@@ -94,17 +94,21 @@ def labeled_clips(clips, prefix):
 # once every clip in the group has buffered, so paired comparisons begin at the same moment.
 VIDEO_SCRIPT = (
     '<script>(function(){'
-    'var vids=document.querySelectorAll("video[autoplay]");'
+    'var vids=Array.prototype.slice.call(document.querySelectorAll("video[autoplay]"));'
     'if(matchMedia("(prefers-reduced-motion: reduce)").matches){'
     'vids.forEach(function(v){v.removeAttribute("autoplay");v.pause();v.controls=true;});return;}'
+    'function nudge(v){var p=v.play();if(p&&p.catch){p.catch(function(){});}}'
+    # Native autoplay keeps running; once every clip in a group has data, rewind them together.
     'document.querySelectorAll(".hero-videos,.trio-grid").forEach(function(group){'
     'var vs=Array.prototype.slice.call(group.querySelectorAll("video"));if(vs.length<2)return;'
-    'vs.forEach(function(v){v.pause();});'
-    'var ready=0,started=false;'
-    'function start(){if(started)return;started=true;vs.forEach(function(v){try{v.currentTime=0;}catch(e){}v.play();});}'
-    'vs.forEach(function(v){function ok(){ready++;if(ready>=vs.length)start();}'
-    'if(v.readyState>=3)ok();else v.addEventListener("canplaythrough",ok,{once:true});});'
-    'setTimeout(start,4000);});'
+    'var ready=0,done=false;'
+    'function align(){if(done)return;done=true;vs.forEach(function(v){try{v.currentTime=0;}catch(e){}nudge(v);});}'
+    'vs.forEach(function(v){function ok(){ready++;if(ready>=vs.length)align();}'
+    'if(v.readyState>=2)ok();else v.addEventListener("loadeddata",ok,{once:true});});'
+    'setTimeout(align,3000);});'
+    # If the browser refused autoplay, show controls so one click starts the clip.
+    'setTimeout(function(){vids.forEach(function(v){if(v.paused){nudge(v);}'
+    'setTimeout(function(){if(v.paused){v.controls=true;}},800);});},2500);'
     '})();</script>')
 
 
