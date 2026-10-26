@@ -115,7 +115,7 @@ def nav(site, prefix, current):
 def footer(site):
     today = datetime.date.today().strftime("%B %Y")
     return (f'<footer class="footer"><div class="wrap"><span>5DCT Lab &#183; {e(site["affiliation"])}</span>'
-            f'<span>{e(site["footer_note"])} Last built {today}.</span></div></footer>')
+            f'<span>Last updated {today}</span></div></footer>')
 
 
 def page(site, prefix, current, title, description, body):
@@ -165,8 +165,7 @@ def contents(site, prefix, pub_count):
         intro = fill(cfg.get("intro", ""), {"count": pub_count})
         items.append(f'<a class="item" href="{e(prefix + slug + "/")}"><p class="eyebrow">{e(cfg["eyebrow"])}</p>'
                      f'<h3>{e(cfg["heading"])}</h3><p>{e(intro)}</p></a>')
-    return (f'<section class="section"><div class="wrap">{section_head(site["contents"])}'
-            f'<div class="index">{"".join(items)}</div></div></section>')
+    return f'<section class="section"><div class="wrap"><div class="index">{"".join(items)}</div></div></section>'
 
 
 # ---------------------------------------------------------------------------

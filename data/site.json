@@ -13,11 +13,6 @@
     ["presentations", "Posters"],
     ["contact", "Contact"]
   ],
-  "contents": {
-    "eyebrow": "Contents",
-    "heading": "On this site",
-    "intro": ""
-  },
   "hero": {
     "dims": [["x", "spatial"], ["y", "spatial"], ["z", "spatial"], ["v", "breathing amplitude"], ["f", "breathing rate"]],
     "headline": "Model-based CT for lung radiotherapy.",
@@ -98,7 +93,7 @@
   "milestones": {
     "eyebrow": "Milestones",
     "heading": "History of the technique",
-    "intro": "Dates taken from the publication record. The lab will correct and extend them."
+    "intro": ""
   },
   "people": {
     "eyebrow": "People",
@@ -108,12 +103,12 @@
   "publications": {
     "eyebrow": "Publications",
     "heading": "Peer-reviewed publications",
-    "intro": "{count} papers by the lab and its collaborators, from the original breathing motion model to the clinical workflow. Seeded automatically from PubMed and grouped by year, with current lab members in bold."
+    "intro": "{count} papers by the lab and its collaborators, from the original breathing motion model to the clinical workflow. Lab members appear in bold."
   },
   "presentations": {
     "eyebrow": "Presentations and posters",
     "heading": "Conference work",
-    "intro": "Posters and abstracts associated with the project. Faculty talks and earlier student presentations to be added."
+    "intro": "Posters and abstracts associated with the project."
   },
   "contact": {
     "eyebrow": "Contact",
@@ -131,5 +126,5 @@
       ["Graduate program", "Physics and Biology in Medicine, https://pbm.ucla.edu/"]
     ]
   },
-  "footer_note": "Built from the lab's publication record."
+  "footer_note": ""
 }
