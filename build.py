@@ -90,9 +90,22 @@ def labeled_clips(clips, prefix):
     return "".join(f'<div><p class="vlabel">{e(v["label"])}</p>{video_tag(v, prefix)}</div>' for v in clips)
 
 
-REDUCED_MOTION_SCRIPT = ('<script>if(matchMedia("(prefers-reduced-motion: reduce)").matches){'
-                         'document.querySelectorAll("video[autoplay]").forEach(function(v){'
-                         'v.removeAttribute("autoplay");v.pause();v.controls=true;});}</script>')
+# Pauses clips for reduced-motion viewers; otherwise starts each group of side-by-side clips together
+# once every clip in the group has buffered, so paired comparisons begin at the same moment.
+VIDEO_SCRIPT = (
+    '<script>(function(){'
+    'var vids=document.querySelectorAll("video[autoplay]");'
+    'if(matchMedia("(prefers-reduced-motion: reduce)").matches){'
+    'vids.forEach(function(v){v.removeAttribute("autoplay");v.pause();v.controls=true;});return;}'
+    'document.querySelectorAll(".hero-videos,.trio-grid").forEach(function(group){'
+    'var vs=Array.prototype.slice.call(group.querySelectorAll("video"));if(vs.length<2)return;'
+    'vs.forEach(function(v){v.pause();});'
+    'var ready=0,started=false;'
+    'function start(){if(started)return;started=true;vs.forEach(function(v){try{v.currentTime=0;}catch(e){}v.play();});}'
+    'vs.forEach(function(v){function ok(){ready++;if(ready>=vs.length)start();}'
+    'if(v.readyState>=3)ok();else v.addEventListener("canplaythrough",ok,{once:true});});'
+    'setTimeout(start,4000);});'
+    '})();</script>')
 
 
 def breathing_trace(width=1120, height=84, points=640, seed=5):
@@ -148,7 +161,7 @@ def page(site, prefix, current, title, description, body):
     if current:
         body = f'<section class="page"><div class="wrap">{body}</div></section>'
     html_body = "".join(['<a class="skip" href="#main">Skip to content</a>', notice, nav(site, prefix, current),
-                         f'<main id="main">{body}</main>', footer(site), REDUCED_MOTION_SCRIPT])
+                         f'<main id="main">{body}</main>', footer(site), VIDEO_SCRIPT])
     doc = (TPL / "base.html").read_text(encoding="utf-8")
     for key, val in {"title": e(title), "description": e(description), "fonts": FONTS,
                      "css": (TPL / "site.css").read_text(encoding="utf-8"), "body": html_body}.items():

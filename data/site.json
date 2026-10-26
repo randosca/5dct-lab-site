@@ -21,8 +21,8 @@
     "primary": ["method", "How it works"],
     "secondary": ["publications", "Publications"],
     "videos": [
-      {"label": "4DCT", "src": "assets/video/4dct-cine.mp4", "poster": "assets/video/4dct-cine-poster.jpg", "alt": "Coronal 4DCT cine of a lung tumor looping through the breathing phases, with phase-sorting artifacts near the diaphragm."},
-      {"label": "5DCT", "src": "assets/video/5dct-cine.mp4", "poster": "assets/video/5dct-cine-poster.jpg", "alt": "Coronal 5DCT cine of the same patient looping through the breathing cycle without sorting artifacts."}
+      {"label": "4DCT", "src": "assets/video/4dct-cine.mp4", "poster": "assets/video/4dct-cine-poster.jpg", "alt": "Sagittal 4DCT cine of a lung tumor above the diaphragm, looping through the breathing phases with sorting artifacts."},
+      {"label": "5DCT", "src": "assets/video/5dct-cine.mp4", "poster": "assets/video/5dct-cine-poster.jpg", "alt": "Sagittal 5DCT cine of the same patient looping through the breathing cycle without sorting artifacts."}
     ],
     "video_caption": "The same patient on 4DCT (top) and 5DCT (bottom), looping through the breathing cycle."
   },
@@ -80,13 +80,6 @@
       "alt": "Animation of fast-helical scanning: a red line sweeps through a coronal image while a plot traces couch position against breathing amplitude for successive scans.",
       "label": "Acquisition",
       "caption": "Scanning while the patient breathes, with a simultaneous surrogate. Each slice is assigned the surrogate value at the moment it is acquired, and 25 passes sample many breaths."
-    },
-    "result_video": {
-      "src": "assets/video/breathing-two-views.mp4",
-      "poster": "assets/video/breathing-two-views-poster.jpg",
-      "alt": "Coronal and sagittal 5DCT breathing-phase images looping through the breathing cycle.",
-      "label": "Result",
-      "caption": "Breathing-phase images reconstructed with 5DCT, coronal and sagittal."
     },
     "paragraphs": [
       "Radiotherapy for lung cancer depends on knowing where a tumor is and how far it moves during breathing. The clinical standard, four-dimensional CT (4DCT), records a breathing signal during scanning and sorts the projection data into eight to ten phase bins. When breathing is irregular the bins are undersampled or inconsistent, and the reconstructed images show diaphragm doubling, streaking, and blurring. Surveys report that 5 to 14% of patients are rescanned because of these artifacts, and 4DCT provides no measure of its own reconstruction quality.",

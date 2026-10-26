@@ -8,8 +8,8 @@ still missing or unconfirmed.
 - [ ] Headshots for everyone listed (initials are shown until then)
 - [x] Figures from Dan's lecture deck on the method and research pages (added 2026-10-25)
 - [x] Videos from Dan's lecture deck compressed and placed (2026-10-25): 4DCT vs 5DCT cine on the home page,
-      acquisition animation, two-view breathing result, and the accuracy trio on the method page
-- [ ] Confirm the two-view breathing clip on the method page (slide 4, left) is a 5DCT reconstruction
+      acquisition animation and the accuracy trio on the method page. The two-view breathing clip from slide 4
+      is a 4DCT with sorting artifacts and was left out
 - [ ] The registration-feedback clip (slide 18) and the viewer clip (slide 26) are screen recordings with desktop
       chrome; crop and add them only if wanted
 - [ ] A true repeat-scan figure for the model stability card (the population model-error plot is a stand-in)
