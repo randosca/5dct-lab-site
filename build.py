@@ -20,7 +20,8 @@ ROOT = Path(__file__).resolve().parent
 DATA, TPL, ASSETS, OUT = ROOT / "data", ROOT / "templates", ROOT / "assets", ROOT / "_site"
 
 # Current lab members as PubMed writes them (surname + initials prefix). Shown in bold in author lists.
-LAB_MEMBERS = ("Low D", "Moghanaki D", "Miller C", "Lauria M", "Andosca R")
+LAB_MEMBERS = ("Low D", "Moghanaki D", "Miller C", "Lauria M", "Andosca R", "Boyle P", "Kim M", "Savjani R",
+               "Neylon J", "Deng J")
 TAG_LABELS = {
     "foundations": "Foundations",
     "method": "Acquisition and modeling",
@@ -303,15 +304,19 @@ def milestones(site, items):
     return f'{section_head(site["milestones"], "h1")}<ol class="timeline">{"".join(rows)}</ol>'
 
 
-def people(site, data):
+def people(site, data, prefix):
     groups = []
     for g in data["groups"]:
         cards = []
         for p in g["people"]:
             links = "".join(f'<a href="{e(url)}">{e(label)}</a>' for label, url in p.get("links", []))
             links_html = f'<div class="links">{links}</div>' if links else ""
+            if p.get("photo"):
+                avatar = f'<div class="avatar photo"><img src="{e(prefix + p["photo"])}" alt="" loading="lazy"></div>'
+            else:
+                avatar = f'<div class="avatar" aria-hidden="true">{e(p["initials"])}</div>'
             cards.append(
-                f'<div class="person"><div class="avatar" aria-hidden="true">{e(p["initials"])}</div>'
+                f'<div class="person">{avatar}'
                 f'<h4>{e(p["name"])}<small>{e(p["credentials"])}</small></h4>'
                 f'<div class="role">{e(p["role"])}</div><p class="title">{e(p["title"])}</p>'
                 f'<p class="bio">{e(p["bio"])}</p>{links_html}</div>')
@@ -321,14 +326,8 @@ def people(site, data):
         link = f' <a href="{e(item["link"])}">dissertation</a>' if item.get("link") else ""
         lineage.append(f'<li class="{"open" if item.get("open") else ""}"><div class="y">{e(item["year"])}</div>'
                        f'<h4>{e(item["name"])}</h4><p>{e(item["thesis"])}{link}</p><p>{e(item["now"])}</p></li>')
-    collab = ""
-    if data.get("collaborators"):
-        cols = "".join(f'<div><h4>{e(c["group"])}</h4><p>{e(c["names"])}</p></div>' for c in data["collaborators"])
-        collab = (f'<div class="group"><h3>{e(data.get("collaborators_heading", "Collaborators"))}</h3>'
-                  f'<div class="collab">{cols}</div></div>')
     return (f'{section_head(site["people"], "h1")}{"".join(groups)}'
-            f'<div class="group"><h3>{e(data["lineage_heading"])}</h3><ol class="lineage">{"".join(lineage)}</ol></div>'
-            f'{collab}')
+            f'<div class="group"><h3>{e(data["lineage_heading"])}</h3><ol class="lineage">{"".join(lineage)}</ol></div>')
 
 
 def author_list(authors):
@@ -444,7 +443,7 @@ def build():
         ("method", site["method"], method(site, sub)),
         ("research", site["research"], research(site, sub)),
         ("history", site["milestones"], milestones(site, load("timeline.json"))),
-        ("people", site["people"], people(site, load("people.json"))),
+        ("people", site["people"], people(site, load("people.json"), sub)),
         ("publications", site["publications"], publications(site, pubs)),
         ("presentations", site["presentations"], presentations(site, posters, sub)),
         ("contact", site["contact"], contact(site)),

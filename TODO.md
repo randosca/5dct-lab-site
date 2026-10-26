@@ -5,7 +5,14 @@ still missing or unconfirmed.
 
 ## Content to collect
 
-- [ ] Headshots for everyone listed (initials are shown until then)
+- [x] Headshots from Claudia's Box folder for nine people (added 2026-10-26)
+- [ ] Headshot for Ryan (none in the folder)
+- [ ] Higher-resolution headshots for Dan (300 px) and Drew (200 px); the current files look soft
+- [ ] Everyone confirms their own entry on the people page; bios were taken from Claudia's roster
+      spreadsheet and lightly updated (Claudia now a resident, Michael now faculty, Peter graduated,
+      Minji and Ryan candidates)
+- [ ] Peter Boyle: current position, dissertation title, and year for the lineage list
+- [ ] Claudia: confirm "medical physics resident" wording and a working LinkedIn address
 - [x] Figures from Dan's lecture deck on the method and research pages (added 2026-10-25)
 - [x] Videos from Dan's lecture deck compressed and placed (2026-10-25): 4DCT vs 5DCT cine on the home page,
       acquisition animation and the accuracy trio on the method page. The two-view breathing clip from slide 4
@@ -21,8 +28,11 @@ still missing or unconfirmed.
 - [ ] Alumni and the full doctoral lineage with degrees, years, and current positions. Candidates from the
       publication record: Dylan O'Connell, Tai Dou, David Thomas, Benjamin White, Tianyu Zhao, Katelyn Hasse,
       Bradley Stiehl, John Ginn, Peter Boyle, Louise Naumann, Minji Kim
-- [x] Collaborators listed on the people page from Dan's acknowledgements slide. Still to decide: Anand Santhanam
-      and John Lewis, who appear in the publication record but not on that slide
+- [x] Collaborating faculty (Savjani, Neylon, Deng) now have full entries from Claudia's roster. Still to decide:
+      Dylan O'Connell, Louise Naumann, Anand Santhanam, and John Lewis, who appear in the publication record
+      or Dan's acknowledgements but not in the roster
+- [ ] Research page: add Ricky Savjani's generative motion-model work with Varian and UCLA EE, and Minji Kim's
+      CT elastography for COPD with Jack Neylon, once both confirm they are current
 - [x] Funding and disclosures (Varian Medical Systems; Respirati) are left off the site unless Dan or Drew ask
       for them (decided 2026-10-25)
 - [ ] A team email alias for the contact page

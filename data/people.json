@@ -7,6 +7,7 @@
           "name": "Daniel A. Low",
           "credentials": "PhD",
           "initials": "DL",
+          "photo": "assets/img/people/low-daniel.jpg",
           "title": "Professor and Vice Chair of Medical Physics Research and Innovation, Department of Radiation Oncology, UCLA",
           "role": "Principal investigator",
           "bio": "Developed the breathing motion model behind 5DCT in 2005 and has led its development and clinical implementation at UCLA. A.B. in Physics, Occidental College; Ph.D. in Physics, Indiana University. Recipient of the 2026 ASTRO Gold Medal.",
@@ -17,11 +18,12 @@
         },
         {
           "name": "Drew Moghanaki",
-          "credentials": "MD, MPH",
+          "credentials": "MD",
           "initials": "DM",
+          "photo": "assets/img/people/moghanaki-drew.jpg",
           "title": "Professor and Chief of Thoracic Oncology, Department of Radiation Oncology, UCLA. Stanley Iezman and Nancy Stark Endowed Chair in Thoracic Radiation Oncology Research",
           "role": "Clinical lead, thoracic radiation oncology",
-          "bio": "Thoracic radiation oncologist and clinical partner for 5DCT in lung cancer treatment planning. Leads national lung cancer research including the VALOR trial of stereotactic radiotherapy versus surgery. M.D., Vanderbilt University; residency, University of Pennsylvania. ASTRO Fellow, 2025.",
+          "bio": "Dr. Drew Moghanaki is Professor and Chief of Thoracic Oncology in the UCLA Department of Radiation Oncology. He is co-director of the VA Greater Los Angeles Lung Precision Oncology Program and co-chair of the VALOR phase III randomized trial for operable stage I non-small cell lung cancer.",
           "links": [
             ["UCLA Health profile", "https://www.uclahealth.org/providers/drew-moghanaki"]
           ]
@@ -30,9 +32,10 @@
           "name": "Michael V. Lauria",
           "credentials": "PhD",
           "initials": "ML",
+          "photo": "assets/img/people/lauria-michael.jpg",
           "title": "Assistant Professor, Department of Radiation Oncology, UCLA",
           "role": "Faculty; clinical workflow and motion-compensated CBCT",
-          "bio": "Completed his Ph.D. in the lab in 2022 on applications of breathing motion dynamics from fast-helical free-breathing CT, then the UCLA medical physics residency, and joined the faculty in 2024. Led the retrospective analysis of the first clinical 5DCT workflow and the motion-compensated cone-beam CT pilot study.",
+          "bio": "Michael Lauria studied nuclear engineering at Purdue University before finding the field of medical physics. He earned his Ph.D. at UCLA under Drs. Daniel Low and Anand Santhanam, studying biomechanical modeling of the lungs, quantitative imaging such as ventilation mapping, 5DCT development, and motion modeling in cone-beam CT, all downstream applications of the 5DCT model. He completed his residency at UCLA and joined the faculty in 2024, where he continues to pursue his interests in biomechanical modeling.",
           "links": [
             ["Academic website", "https://michaelvlauria.owlstown.net/"],
             ["Google Scholar", "https://scholar.google.com/citations?user=_cwcXXYAAAAJ"],
@@ -42,27 +45,96 @@
       ]
     },
     {
-      "title": "Trainees and recent graduates",
+      "title": "Collaborating faculty",
+      "people": [
+        {
+          "name": "Ricky Savjani",
+          "credentials": "MD, PhD",
+          "initials": "RS",
+          "photo": "assets/img/people/savjani-ricky.jpg",
+          "title": "Assistant Professor, Department of Radiation Oncology, UCLA",
+          "role": "Computing, data, and generative motion models",
+          "bio": "Ricky Savjani is an Assistant Professor in the Department of Radiation Oncology. He works with Dr. Low and the team in managing on-premises computational resources, the 5DCT XNAT database, and collaborative projects. With 5DCT, the group is working with Varian and the UCLA Electrical Engineering department to build a generative motion model framework using conditional variational autoencoder and stable diffusion neural networks.",
+          "links": [
+            ["Website", "https://rickysavjani.com/"]
+          ]
+        },
+        {
+          "name": "Jack Neylon",
+          "credentials": "PhD, DABR",
+          "initials": "JN",
+          "photo": "assets/img/people/neylon-jack.jpg",
+          "title": "Assistant Professor, Department of Radiation Oncology, UCLA",
+          "role": "Biomechanical modeling and automation",
+          "bio": "Jack Neylon is an Assistant Professor in the Department of Radiation Oncology at UCLA. He has BS degrees in physics and mathematics and an MS in medical physics from Purdue University, and in 2016 he received his PhD in Biomedical Physics from UCLA for work on massively parallel programming approaches to adaptive radiotherapy and biomechanical modeling. He has a continued interest in biomechanical models for inter- and intra-fractional motion tracking and image registration, and his clinical research interests include process automation, integration of AI in clinical workflows, and quantification of plan robustness and plan quality.",
+          "links": [
+            ["Website", "https://jpneylon.github.io/"]
+          ]
+        },
+        {
+          "name": "Jie Deng",
+          "credentials": "MD, PhD",
+          "initials": "JD",
+          "photo": "assets/img/people/deng-jie.jpg",
+          "title": "Assistant Professor, Department of Radiation Oncology, UCLA",
+          "role": "Thoracic radiation oncology and immunotherapy",
+          "bio": "Jie Deng is an Assistant Professor in the Department of Radiation Oncology at UCLA. As a physician-scientist, her focus is understanding how different radiation therapy approaches modulate the immune response against cancer, to inform strategic combinations with immunotherapy in the treatment of patients with thoracic malignancies.",
+          "links": [
+            ["X", "https://x.com/JieDengMDPhD"]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Doctoral candidates",
+      "people": [
+        {
+          "name": "Ryan Andosca",
+          "credentials": "MS",
+          "initials": "RA",
+          "title": "Ph.D. candidate, Physics and Biology in Medicine, UCLA",
+          "role": "Ventilation and motion-compensated CBCT",
+          "bio": "Ryan Andosca is a Ph.D. candidate in the Physics and Biology in Medicine program at UCLA. He has a B.S. in physics with an emphasis on mathematical methods from UC Merced (2013) and an M.S. in physics from Fresno State (2016), where his research concerned the Aharonov-Bohm effect and Stokes' theorem as applied to time-varying fields. His research in the lab focuses on correcting the 5D motion model for ventilation, measuring ventilation itself, image registration quality, and motion-compensated cone-beam CT for tracking tumor response during treatment.",
+          "links": []
+        },
+        {
+          "name": "Minji Victoria Kim",
+          "credentials": "",
+          "initials": "MK",
+          "photo": "assets/img/people/kim-minji.jpg",
+          "title": "Ph.D. candidate, Physics and Biology in Medicine, UCLA",
+          "role": "5DCT accuracy and lung elasticity",
+          "bio": "Minji Victoria Kim is a Ph.D. candidate in the Physics and Biology in Medicine program at UCLA with a therapeutic medical physics specialization. She has a BS in physics and a Great Books minor from Pepperdine University, where she researched magnetic reconnection in the interaction of the solar wind with the Earth's magnetosphere. At UCLA she is involved in the analysis of clinical 5DCT accuracy, and she collaborates with imaging and therapy labs and Dr. Jack Neylon on a biomechanically guided elastography method applied to CT image data to estimate lung tissue elasticity as a physiologically based metric for assessing COPD, with an interest in regional, lobar variability of lung tissue elasticity.",
+          "links": [
+            ["LinkedIn", "https://www.linkedin.com/in/minjivkim"]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Recent graduates",
       "people": [
         {
           "name": "Claudia R. Miller",
           "credentials": "PhD",
           "initials": "CM",
-          "title": "Resident, Department of Radiation Oncology, UCLA",
-          "role": "Recent graduate; clinical 5DCT workflow",
-          "bio": "Ph.D. in Physics and Biology in Medicine, 2026. Her dissertation improved the clinical 5DCT workflow with diaphragm-based calibration of the breathing signal and a 4DCT HiFi backup, then measured how 4DCT- and 5DCT-defined target volumes differ in blinded physician contouring and in the resulting dose distributions.",
+          "photo": "assets/img/people/miller-claudia.jpg",
+          "title": "Medical physics resident, Department of Radiation Oncology, UCLA",
+          "role": "Clinical 5DCT workflow",
+          "bio": "Claudia Miller is a medical physics resident in the UCLA Department of Radiation Oncology. She graduated from Wayne State University in 2021 with a BSE in Biomedical Engineering and a concentration in instrumentation, and completed her Ph.D. in the Physics and Biology in Medicine program at UCLA in 2026. Her research focused on improvements to the 5D protocol and clinical implementation of the 5D 2.0 software, including incorporating the diaphragm dome into the calibration of the breathing surrogate. Her earlier work in the lab brought the 5D workflow into a novel reconstruction technique for CBCT imaging, MCSART, with Dr. Michael Lauria.",
           "links": [
             ["Google Scholar", "https://scholar.google.com/citations?user=ykBY7UAAAAAJ"],
             ["Dissertation", "https://escholarship.org/uc/item/1m2760q3"]
           ]
         },
         {
-          "name": "Ryan Andosca",
-          "credentials": "MS",
-          "initials": "RA",
-          "title": "Ph.D. candidate, Physics and Biology in Medicine, UCLA",
-          "role": "Graduate student researcher",
-          "bio": "Advanced to candidacy in 2026. Works on correcting 5DCT images for ventilation-induced density change, density-based regional ventilation mapping, motion-compensated cone-beam CT for tracking tumor response during treatment, and the stability of patient-specific motion models over a course of radiotherapy.",
+          "name": "Peter Boyle",
+          "credentials": "PhD",
+          "initials": "PB",
+          "photo": "assets/img/people/boyle-peter.jpg",
+          "title": "Ph.D., Physics and Biology in Medicine, UCLA",
+          "role": "Registration accuracy and image visualization",
+          "bio": "Peter Boyle completed his Ph.D. in the Physics and Biology in Medicine program at UCLA. He graduated from UC Berkeley in 2018 with a double major in physics and astrophysics. His research in the lab was on measuring registration accuracy and improving image visualization tools.",
           "links": []
         }
       ]
@@ -78,10 +150,16 @@
       "link": "https://escholarship.org/uc/item/1jf5370j"
     },
     {
+      "year": "Year to confirm",
+      "name": "Peter Boyle",
+      "thesis": "Dissertation title to confirm; measuring registration accuracy and improving image visualization tools",
+      "now": "Current position to confirm"
+    },
+    {
       "year": "2026",
       "name": "Claudia R. Miller",
       "thesis": "Development and Assessment of the Clinical 5DCT Workflow for use in Respiratory Motion Management for Radiation Therapy",
-      "now": "Resident, UCLA Radiation Oncology",
+      "now": "Medical physics resident, UCLA Radiation Oncology",
       "link": "https://escholarship.org/uc/item/1m2760q3"
     },
     {
@@ -90,12 +168,13 @@
       "thesis": "Advancing 5DCT for Lung Radiotherapy: Ventilation Characterization, Motion-Compensated CBCT, and Longitudinal Model Stability",
       "now": "Candidate since 2026",
       "open": true
+    },
+    {
+      "year": "In progress",
+      "name": "Minji Victoria Kim",
+      "thesis": "Clinical 5DCT accuracy and CT-based lung elasticity in COPD",
+      "now": "Candidate",
+      "open": true
     }
-  ],
-  "collaborators_heading": "Collaborators",
-  "collaborators": [
-    {"group": "UCLA Radiation Oncology", "names": "Dylan O'Connell, Ricky Savjani, Jack Neylon, James Lamb, Jie Deng"},
-    {"group": "UCLA Division of Pulmonary and Critical Care", "names": "Igor Barjaktarevic, MD, PhD"},
-    {"group": "UCLA Radiology", "names": "Jonathan Goldin, MD"}
   ]
 }

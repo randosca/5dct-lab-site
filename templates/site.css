@@ -152,7 +152,9 @@ figcaption .lab{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em
 .group h3{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:500;margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .people{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px}
 .person{display:grid;gap:8px;align-content:start}
-.avatar{width:76px;height:76px;border-radius:50%;background:var(--accent-soft);color:var(--accent-strong);display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:1.3rem;letter-spacing:.02em;margin-bottom:8px;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+.avatar{width:104px;height:104px;border-radius:50%;background:var(--accent-soft);color:var(--accent-strong);display:grid;place-items:center;font-family:var(--font-display);font-weight:600;font-size:1.5rem;letter-spacing:.02em;margin-bottom:10px;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);overflow:hidden}
+.avatar.photo{background:var(--surface-2);border-color:var(--line)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .person h4{font-size:1.15rem}
 .person h4 small{font-family:var(--font-mono);font-weight:400;font-size:.72rem;letter-spacing:.06em;color:var(--ink-2);margin-left:6px}
 .person .role{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
@@ -231,11 +233,6 @@ figcaption .lab{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em
 .stage li{font-size:.98rem;color:var(--ink)}
 .tagline{margin-top:20px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2)}
 
-/* people: collaborators */
-.collab{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.collab h4{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:8px}
-.collab p{font-size:.95rem;color:var(--ink-2)}
-
 /* poster detail page */
 .poster-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:-8px}
 .poster-actions .back{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;margin-left:auto}
@@ -257,7 +254,7 @@ dl.details dd{margin:0}
   .stat{padding:16px 20px}
   .stat:nth-child(odd){border-left:0;padding-left:0}
   .people,.posters,.lineage,.index{grid-template-columns:repeat(2,1fr)}
-  .cards,.goals,.stages,.collab,.directions{grid-template-columns:1fr}
+  .cards,.goals,.stages,.directions{grid-template-columns:1fr}
 }
 @media (max-width:600px){
   .people,.posters,.lineage,.index,.trio-grid{grid-template-columns:1fr}
