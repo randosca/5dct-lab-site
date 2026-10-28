@@ -35,7 +35,7 @@ FONTS = (
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
     '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-    'family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700'
+    'family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800'
     '&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400'
     '&family=IBM+Plex+Mono:wght@400;500&display=swap">'
 )
@@ -183,8 +183,6 @@ def hero(site, prefix):
     dims = "".join(
         f'<span class="{"breath" if sym in ("v", "f") else ""}"><b>{e(sym)}</b><small>{e(label)}</small></span>'
         for sym, label in h["dims"])
-    stats = "".join(f'<div class="stat"><div class="n">{e(s["n"])}</div><div class="l">{e(s["l"])}</div></div>'
-                    for s in site["stats"])
     if h.get("videos"):
         visual = (f'<figure class="hero-videos">{labeled_clips(h["videos"], prefix)}'
                   f'<figcaption>{e(h["video_caption"])}</figcaption></figure>')
@@ -198,8 +196,14 @@ def hero(site, prefix):
         f'<div class="cta"><a class="btn primary" href="{e(prefix + h["primary"][0] + "/")}">{e(h["primary"][1])}</a>'
         f'<a class="btn" href="{e(prefix + h["secondary"][0] + "/")}">{e(h["secondary"][1])}</a></div></div>'
         f'{visual}'
-        f'</div><div class="wrap">{breathing_trace()}<div class="stats">{stats}</div></div></section>'
+        f'</div></section>'
     )
+
+
+def stats_row(site):
+    stats = "".join(f'<div class="stat"><div class="n">{e(s["n"])}</div><div class="l">{e(s["l"])}</div></div>'
+                    for s in site["stats"])
+    return f'<section class="stats-row"><div class="wrap">{breathing_trace()}<div class="stats">{stats}</div></div></section>'
 
 
 def contents(site, prefix, pub_count):
@@ -438,7 +442,8 @@ def build():
     sub = "../"
     # Each entry: output folder under _site, path prefix back to the site root, nav item to highlight,
     # page title, meta description, body HTML.
-    pages = [("", "", "", name, site["description"], hero(site, "") + goals(site, "") + contents(site, "", len(pubs)))]
+    pages = [("", "", "", name, site["description"],
+              hero(site, "") + goals(site, "") + stats_row(site) + contents(site, "", len(pubs)))]
     for slug, cfg, body in [
         ("method", site["method"], method(site, sub)),
         ("research", site["research"], research(site, sub)),

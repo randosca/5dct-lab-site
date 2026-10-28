@@ -47,6 +47,17 @@ still missing or unconfirmed.
 - [ ] The publication list: anything missing, anything to drop (seeded from PubMed)
 - [ ] Milestone dates and wording on the history page
 
+## From Drew's review (2026-10-28)
+
+- [ ] Lab name: "UCLA 5DCT Lab"? Waiting on Dan
+- [x] Lab, not a service: hero, stat labels, method, research card, and contact wording now describe the lab as
+      the group that led development and supports enhancement, with clinical use attributed to the department
+- [x] Method subtitles: "The problem that 5DCT addresses" and "How 5DCT works"
+- [x] Larger type throughout, heavier and larger headings
+- [ ] Deferred: an animation of the patient table moving through the scanner
+- [ ] Deferred: a clean 5DCT output loop under "What 5DCT is" (Ryan can export phase-image frames from the pipeline)
+- [ ] Group meeting to brainstorm further ideas
+
 ## Site and hosting
 
 - [ ] Remove the mockup banner (`mockup_notice` in data/site.json) once the team signs off

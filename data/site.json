@@ -17,7 +17,7 @@
     "dims": [["x", "spatial"], ["y", "spatial"], ["z", "spatial"], ["v", "breathing amplitude"], ["f", "breathing rate"]],
     "headline": "Model-based CT for lung radiotherapy.",
     "lede_strong": "The 5DCT Lab",
-    "lede": " is the UCLA Radiation Oncology team behind five-dimensional CT, a model-based CT simulation technique that replaces 4DCT phase sorting with a patient-specific breathing motion model. It has been part of routine clinical practice at UCLA since 2019.",
+    "lede": " is the UCLA Radiation Oncology research group that developed five-dimensional CT, a model-based CT simulation technique that replaces 4DCT phase sorting with a patient-specific breathing motion model. The lab leads the development and innovation that led to 5DCT's clinical implementation at UCLA in 2019, and it supports the method's further enhancement.",
     "primary": ["method", "How it works"],
     "secondary": ["publications", "Publications"],
     "videos": [
@@ -29,8 +29,8 @@
   "stats": [
     {"n": "25", "l": "fast-helical scans per session"},
     {"n": "≈2 min", "l": "free-breathing acquisition"},
-    {"n": "2019", "l": "routine clinical use at UCLA since"},
-    {"n": "300+", "l": "lung cancer patients planned with 5DCT"}
+    {"n": "2019", "l": "in clinical use at UCLA since"},
+    {"n": "300+", "l": "lung cancer patients imaged with 5DCT at UCLA"}
   ],
   "goals": {
     "eyebrow": "Programmatic goals",
@@ -60,7 +60,7 @@
       "caption": "Collect 25 scans alongside the breathing signal, register the images, calibrate the breathing signal to the scans, fit a motion model to the breathing signal and scans, and create motion-free images."
     },
     "sampling": {
-      "heading": "The sampling problem",
+      "heading": "The problem that 5DCT addresses",
       "paragraphs": [
         "A conventional 4DCT is a long examination globally but a very short physiological observation locally. Each anatomical location is scanned for a few seconds, about one breath, so 4DCT is spatially comprehensive but temporally sparse, and the breath captured at one location can differ from the breath captured at the next.",
         "Sorting cannot recover what was not sampled. Phase and displacement binning reorganize the available observations: they assign acquired data to respiratory bins, trade sensitivity to period irregularity against amplitude irregularity, and reduce some classes of sorting artifact, but they cannot create an observation of a respiratory state that never occurred while that anatomy was being scanned. Binning changes assignment; it does not add respiratory observations.",
@@ -73,7 +73,7 @@
         "caption": "5DCT (left) and 4DCT (right) for the same patient, tumor outlined. The banding and duplicated structures in the 4DCT come from phase sorting of irregular breaths."
       }
     },
-    "how_heading": "How it works",
+    "how_heading": "How 5DCT works",
     "acquisition_video": {
       "src": "assets/video/acquisition-animation.mp4",
       "poster": "assets/video/acquisition-animation-poster.jpg",
@@ -85,7 +85,7 @@
       "Radiotherapy for lung cancer depends on knowing where a tumor is and how far it moves during breathing. The clinical standard, four-dimensional CT (4DCT), records a breathing signal during scanning and sorts the projection data into eight to ten phase bins. When breathing is irregular the bins are undersampled or inconsistent, and the reconstructed images show diaphragm doubling, streaking, and blurring. Surveys report that 5 to 14% of patients are rescanned because of these artifacts, and 4DCT provides no measure of its own reconstruction quality.",
       "In 5DCT the sorting step is replaced by a patient-specific motion model fit to the scans themselves. The patient breathes freely while the scanner acquires 25 fast helical scans in about two minutes and a pneumatic bellows around the upper abdomen records breathing amplitude, after which every scan is deformably registered to a reference scan and a motion model relating tissue position to breathing amplitude and breathing rate is fit at each voxel. The five dimensions are the three spatial coordinates plus these two respiratory parameters.",
       "Because the model is continuous in breathing amplitude, images can be generated at any breathing state without changing the acquisition, and the fitted model can be used to re-predict the original 25 scans. The residual between prediction and measurement is reported voxel by voxel, which gives physicians a quantitative confidence map for the tumor and the structures around it. Imaging dose is comparable to a conventional 4DCT, and all of it contributes to image quality.",
-      "5DCT has been in routine use for thoracic treatment planning at UCLA since March 2019. In a retrospective analysis of the first clinical workflow, 83% of cases produced images used directly for planning, and no patient required a repeat scan."
+      "UCLA Radiation Oncology has used 5DCT for routine thoracic treatment planning since March 2019. The lab led the development that made that implementation possible and supports its further enhancement, rather than day-to-day clinical operation. In a retrospective analysis of the first clinical workflow, 83% of cases produced images used directly for planning, and no patient required a repeat scan."
     ],
     "equation_legend": "X₀ is the voxel's reference position, v the breathing amplitude, and f the breathing rate. α and β are fit per voxel from the 25 registered scans; β carries the hysteresis between inhalation and exhalation.",
     "steps": [
@@ -134,7 +134,7 @@
     "intro": "The protocol produces 25 registered scans, a breathing signal, and a motion model for every patient, and the projects below use that data for measurements that 4DCT does not provide.",
     "cards": [
       {
-        "title": "Clinical 5DCT workflow",
+        "title": "Improving the clinical workflow",
         "text": "The breathing signal is calibrated to diaphragm position measured in the scans themselves, and a 4DCT HiFi reconstruction serves as a backup when the model is not usable. Blinded physician contouring then shows how 4DCT- and 5DCT-defined target volumes differ and what those differences do to the dose distribution. In a prospective study of 20 patients with multiple blinded experts, the 4DCT- and 5DCT-defined target volumes differed by a Hausdorff distance of 8.8 ± 5.7 mm and a volume percent difference of 35 ± 25%.",
         "people": "Miller · Lauria · Moghanaki · Low",
         "figure": {"src": "assets/img/itv-agreement.jpg", "alt": "Axial, sagittal, and coronal CT panels for three patients with 4DCT and 5DCT internal target volume contours overlaid in red and blue, grouped as good, moderate, and poor agreement, with VPD, HD, MDA, DSC, and Jaccard values beside each row."}
@@ -201,7 +201,7 @@
     "heading": "Contact and collaboration",
     "intro": "How to reach the team, and how prospective students apply.",
     "paragraphs": [
-      "The 5DCT Lab is part of the medical physics research program in the UCLA Department of Radiation Oncology. Physicists and physicians interested in the technique, its clinical implementation, or collaboration on free-breathing CT data can reach the team by email.",
+      "The 5DCT Lab is part of the medical physics research program in the UCLA Department of Radiation Oncology. Physicists and physicians interested in the method, in collaboration, or in free-breathing CT data can reach the research team by email. Questions about 5DCT as used in patient care at UCLA go to the Department of Radiation Oncology.",
       "Prospective doctoral students apply through the UCLA Physics and Biology in Medicine graduate program."
     ],
     "details": [
